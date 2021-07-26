@@ -1,0 +1,209 @@
+<div class="store-page d-block clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12"> {% if section.settings.page_title != blank %}
+        <h3 class="h2 text-center">{{ section.settings.page_title | escape }}</h3>
+        {% endif %}
+      </div>
+    </div>
+    {% for block in section.blocks %}
+        {% if block.type == 'textblock' %}
+          {% if block.settings.text_block != blank %}
+              <div class="row">
+                <div class="col-12 col-sm-12">
+                    {{ block.settings.text_block }}
+                </div>
+              </div>
+          {% endif %}
+        {% endif %}
+
+        {% if block.type == 'text' %}
+         <div class="store-gallery d-block clearfix">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7 {% if block.settings.flip_block == true %}order-2{% endif %}">
+              <!-- <div class="atelier-img"><img src="{{ 'Atelier-store.jpg' | asset_url }}" alt="Store"></div> -->
+              {%- if block.settings.block1_left_image != blank -%}
+              <div class="atelier-img"><img src="{{ block.settings.block1_left_image | img_url : 'master' }}" alt="Store"></div>
+              {%- endif -%}
+            </div>
+            <div class="col-12 d-block col-sm-12 d-sm-block col-md-12 d-md-block col-lg-5 d-flex flex-wrap {% if block.settings.flip_block == true %}order-1{% endif %}">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 mt-md-4 col-lg-12 mt-lg-0 align-self-start">
+                  <div class="row">
+                    <div class="col-12 col-sm-12">
+                      {%- if block.settings.block1_right_1 != blank -%}
+                      <div class="atelier-img"> <img src="{{ block.settings.block1_right_1 | img_url : 'master' }}" alt="Store"> </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 mt-md-4 col-lg-12 align-self-end">
+                  <div class="row">
+                    <div class="col-12 col-sm-12">
+                      {%- if block.settings.block1_right_2 != blank -%}
+                      <div class="atelier-img"><img src="{{ block.settings.block1_right_2 | img_url : 'master' }}" alt="Store"> </div>
+                      {%- endif -%}
+                      <!-- <div class="atelier-img"><img src="{{ 'Atelier-img2.jpg' | asset_url }}" alt="Store"></div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         <!-- </div> -->
+        {% endif %}
+
+        {% if block.type == 'textwithimage' %}
+          <div class="row mt-4">
+            <div class="col-12 order-2 col-sm-12 order-sm-2 col-md-6 order-md-2 col-lg-6 order-lg-2">
+                <!-- <div class="atelier-img"><img src="{{ 'Atelier-store.jpg' | asset_url }}" alt="Store"></div> -->
+                {%- if block.settings.block2_image_1 != blank -%}
+                <div class="atelier-img"><img src="{{ block.settings.block2_image_1 | img_url : 'master' }}" alt="Store"></div>
+                {%- endif -%}
+            </div>
+            <div class="col-12 order-2 col-sm-12 order-sm-2 col-md-6 order-md-2 col-lg-6 order-lg-2">
+                <!-- <div class="atelier-img"><img src="{{ 'Atelier-store.jpg' | asset_url }}" alt="Store"></div> -->
+                {%- if block.settings.block2_image_2 != blank -%}
+                <div class="atelier-img"><img src="{{ block.settings.block2_image_2 | img_url : 'master' }}" alt="Store"></div>
+                {%- endif -%}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if block.type == 'singleimage' %}
+        <div class="row mt-4 mb-4">
+          <div class="col-12 order-2 col-sm-12 order-sm-2 col-md-12 order-md-1 col-lg-12">
+              {% if block.settings.image != blank %}
+              <div class="atelier-img">
+                  <img src="{{ block.settings.image | img_url : 'master' }}" >
+              </div>
+              {% endif %}
+          </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "PAGE CONTENT"
+  },
+  "class": "index-section",
+  "settings": [{
+      "type": "text",
+      "id": "page_title",
+      "label": {
+        "en": "Title"
+      },
+      "default": "The Atelier"
+    }
+  ],
+  "blocks": [{
+      "type": "text",
+      "name": {
+        "en": "One/Two Images Block"
+      },
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "flip_block",
+          "label": "Flip Block"
+        },
+        {
+          "type": "image_picker",
+          "id": "block1_left_image",
+          "label": "Left Large Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "block1_right_1",
+          "label": "Right Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "block1_right_2",
+          "label": "Right Image 2"
+        }
+      ]
+    },
+    {
+      "type": "textwithimage",
+      "name": {
+        "en": "Two Images Block"
+      },
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "block2_image_1",
+          "label": "Left Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "block2_image_2",
+          "label": "Right Image"
+        }
+      ]
+    },
+    {
+      "type": "textwobyone",
+      "name": {
+        "en": "Two by One Image"
+      },
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "flip_block",
+          "label": "Flip Block"
+        },
+        {
+          "type": "image_picker",
+          "id": "block3_left1",
+          "label": "Left Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "block3_left2",
+          "label": "Left Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "block3_right",
+          "label": "Right Image"
+        }
+      ]
+    },
+    {
+      "type": "textblock",
+      "name": {
+        "en": "Text Block"
+      },
+      "settings": [
+        {
+           "type": "header",
+           "content": "Text Block"
+        },
+        {
+          "type": "richtext",
+          "id": "text_block",
+          "label": "Enter Text"
+        }
+      ]
+    },
+    {
+      "type": "singleimage",
+      "name": {
+        "en": "Single Image Block"
+      },
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Select Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,207 @@
+<div class="content-page clearfix">
+  <div class="container">
+    <div class="row">
+<!--       <div class="col-12 col-sm-12 col-md-2">
+        {%- assign side_bar = section.settings.side_menu -%}
+        <ul class="side-nav">
+        {%- for link in linklists[side_bar].links -%}
+          {%- if link.url contains page.url -%}
+            <li><a href="{{ link.url }}" class="active">{{ link.title }}</a></li>
+          {%- else -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endif -%}
+        {%- endfor -%}
+        </ul>
+      </div> -->
+      <div class="col-12">
+        <div class="content-block d-block clearfix">
+          <div class="row">
+            <div class="col-12">
+              {%- if section.settings.title != blank -%}
+              <h1>{{ section.settings.title }} </h1>
+              {%- endif -%}
+              {%- if section.settings.row_description != blank -%}
+                  {{ section.settings.row_description }}
+              {%- endif -%}
+
+              {%- comment -%}
+              <p>If you would like to get in touch with any enquiries about our products or service , or to make an appointment then please contact us by email: enquiries@suzannah.com.</p>
+              <p>Our team are available to be contacted by telephone during boutique opening hours on +44 (0)207 258 0782</p>
+              <p>Our boutique is available for walk-in customers , or for appointments. It is advisable to book an appointment as we can then prepare styles in your size that you may like to try. The appointments last an hour and are not chargable.</p>
+              {%- endcomment -%}
+              <div class="row mt-4">
+                <div class="col-12 col-sm-12 col-md-6">
+                  {%- if section.settings.column_address1 != blank -%}
+                  <p>
+                    {%- if section.settings.address1_title !=blank -%}
+                      <span class="address-head">
+                        {{ section.settings.address1_title }}
+                      </span>
+                    {%- endif -%}
+                    {{ section.settings.column_address1 }}
+                  </p>
+                  {%- endif -%}
+                </div>
+                <div class="col-12 col-sm-12 col-md-6">
+                  {%- if section.settings.column_address2 != blank -%}
+                    <p>
+                      {%- if section.settings.address2_title != blank -%}
+                         {{ section.settings.address2_title }}<br/>
+                      {%- endif -%}
+                      {{ section.settings.column_address2 }}
+                    </p>
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="map-block">
+            {%- if section.settings.adress_map != blank -%}
+               {{ section.settings.adress_map }}
+            {%- endif -%}
+          </div>
+          <div class="row">
+            <div class="col-12">
+              {%- if section.settings.time_content != blank -%}
+               {{section.settings.time_content}}
+              {%- endif -%}
+             </div>
+            <div class="col-12 col-sm-12 col-md-6">
+              <div class="newsleter d-block clearfix">
+                {%- if section.settings.newsletter_title !=blank -%}
+                  <h4>{{ section.settings.newsletter_title }}</h4>
+                {%- endif -%}
+                {%- if section.settings.text_newsletter != blank -%}
+                  {{ section.settings.text_newsletter }}
+                {%- endif -%}
+
+                <div class="newsletter-field">
+                  {%- assign formId = 'ContactFooter' -%}
+                  {%- if section.settings.contact_form_type == 'sign_up_to' -%}
+                  {%- include 'contact_form_signupto' -%}
+                  {%- else -%}
+                    {%- include 'contact_form_shopify' -%}
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "PAGE CONTENT"
+  },
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "side_menu",
+      "label": {
+        "en": "Side Menu"
+      }
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "en": "Title"
+      },
+      "default" : "Contact Us"
+    },
+    {
+      "type": "richtext",
+      "id": "row_description",
+      "label": "Description",
+      "default": "<p>Lorium ipsum</p>"
+    },
+    {
+      "type": "text",
+      "id": "address1_title",
+      "label": {
+        "en": "Address Title 1"
+      },
+      "default" : "Address Title 1"
+    },
+    {
+       "type": "richtext",
+       "id": "column_address1",
+       "label": "Address To Visit",
+       "default": "<p>Suzannah,<br/> 3 New Quebec Street, London, W1H 7RE.</p>"
+    },
+    {
+      "type": "text",
+      "id": "address2_title",
+      "label": {
+        "en": "Address Title 2"
+      },
+      "default" : "Address Title 2"
+    },
+    {
+       "type": "richtext",
+       "id": "column_address2",
+       "label": "Opposite Of Boutique",
+       "default": "<p>The Atelier <br/>20 New Quebec Street, London W1H 7SB</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "adress_map",
+      "label": {
+        "en": "Google Map HTML"
+      },
+      "default" : "Google Map HTML"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter form type"
+    },
+    {
+      "type": "radio",
+      "id": "contact_form_type",
+      "label": "Select header style",
+      "default": "sign_up_to",
+      "options": [
+        {
+          "value": "sign_up_to",
+          "label": "Sign-up.to Form"
+        },
+        {
+          "value": "shopify_contact",
+          "label": "Shopify Contact Form"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "contact_form_action",
+      "label": "Newsletter action URL",
+      "default": "https://forms.sign-up.to/28913/7067"
+    },
+	{
+      "type": "richtext",
+      "id": "time_content",
+      "label": "Timing Data Content",
+      "default": "<p>Lorium ipsum</p>"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_title",
+      "label": {
+        "en": "Newsletter Title"
+      },
+      "default" : "Newsletter Signup"
+    },
+    {
+       "type": "richtext",
+       "id": "text_newsletter",
+       "label": "Newsletter Text",
+       "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, exclusive Suzannah products, services, stores and events.</p>"
+    }
+  ]
+}
+{% endschema %}

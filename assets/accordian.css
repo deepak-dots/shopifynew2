@@ -1,0 +1,68 @@
+/* @author Tim himself */
+.accordian{
+	width: calc(100% + 30px);
+	float: left;
+	margin: 20px -15px 0 -15px;
+}
+.accordian h3 {
+    border: 1px solid #ccc;
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    color: #1c143d;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: -1px;
+    margin-top: 0;
+    padding: 5px 10px 7px;
+    position: relative;
+    text-align: left;
+    text-transform: capitalize;
+    transition: all 0.25s ease 0s;
+}
+.accordian h3.alignLeft {
+	padding-left: 35px;
+}
+.accordian .accordian-body {
+	display: none;
+	background: #fff;
+	border: 1px solid #cdcdcd;
+	text-align: left;
+	padding: 15px;
+	margin-bottom: 9px;
+}
+.accordian .accordian-body p{
+	margin: 0;
+}
+.accordian .arrowDown {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 13.0px 7.5px 0 7.5px;
+	border-color: #272e35 transparent transparent transparent;
+	position: absolute;
+	bottom: 0;
+	left: 40px;
+	transition: 0.25s all;
+	opacity: 0;
+	display: none;
+}
+.accordian .active .arrowDown {
+	bottom: -13px;
+	border-color: #009641 transparent transparent transparent;
+	opacity: 1;
+}
+.accordian .collapseIcon {
+	position: absolute;
+	right: 3px;
+	top: 45%;
+	font-size: 25px;
+	font-weight: 300;
+	-ms-transform: translate(0, -50%);
+	    transform: translate(0, -50%);
+}
+.accordian .collapseIcon.alignLeft {
+	right: initial;
+	left: 20px;
+}

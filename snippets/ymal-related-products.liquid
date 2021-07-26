@@ -1,0 +1,145 @@
+{%- assign ymal_product_count = product.metafields.ymal | size -%}
+<div class="row block_heading">
+  <div class="col-xs-12">
+    <h3 class="block_heading--title">{{ 'products.general.related_products' | t }}</h3>
+  </div>
+</div>
+<div class="category-products row">
+  {%- assign carousel = settings.ymal_product_carousel -%}
+  {%- assign slidercol = 'col-12' -%}
+  {%- if settings.mobile_product_column -%}
+    {% assign col = 12 | divided_by: settings.mobile_product_column %}
+    {%- capture slidercol -%}col-{{col}} col-sm-{{col}}{%- endcapture -%}
+  {%- endif -%}
+  {%- if settings.tablet_product_column -%}
+    {% assign col = 12 | divided_by: settings.tablet_product_column %}
+    {%- capture slidercol -%}{{slidercol}} col-md-{{col}}{%- endcapture -%}
+  {%- endif -%}
+  {%- if settings.desktop_product_column -%}
+    {% assign col = 12 | divided_by: settings.desktop_product_column %}
+    {%- capture slidercol -%}{{slidercol}} col-lg-{{col}}{%- endcapture -%}
+  {%- endif -%}
+  {% if carousel %}
+    <div class="slick-carousel products-grid col-12" data-slick='{"slidesToShow":{{settings.desktop_product_column}}, "slidesToScroll":1, "dots": true, "autoplaySpeed":5000,"adaptiveHeight": false, "speed":300 ,"responsive":[{"breakpoint":1824,"settings":{"slidesToShow":{{settings.desktop_product_column}},"slidesToScroll":{{settings.desktop_product_scroll}}}},{"breakpoint":1200,"settings":{"slidesToShow":{{settings.desktop_product_column}},"slidesToScroll":{{settings.desktop_product_scroll}}}},{"breakpoint":992,"settings":{"slidesToShow":{{settings.tablet_product_column}},"slidesToScroll":{{settings.tablet_product_scroll}}}},{"breakpoint":768,"settings":{"slidesToShow":{{settings.mobile_product_column}},"slidesToScroll":{{settings.mobile_product_scroll}}}},{"breakpoint":480,"settings":{"slidesToShow":{{settings.mobile_product_column}},"slidesToScroll":{{settings.mobile_product_scroll}}}}],"infinite":false}'>
+  {% else %}
+    <ul class="products-grid columns{{settings.related_product_column}}">
+  {% endif %}
+
+  {% assign current_product = product %}
+  {% assign current_product_found = false %}
+
+    {%- for ymal in product.metafields.ymal -%}
+
+      {%- assign yproduct = all_products[ymal.last] -%}
+
+      {% if yproduct.handle == current_product.handle %}
+        {% assign current_product_found = true %}
+      {% else %}
+
+          {% if carousel %}
+            <div class="item product {{ slidercol }}">
+          {% else %}
+            <li class="item product product-layout-grid">
+          {% endif %}
+
+            {% include 'product-card-grid', product: yproduct, max_height: 600 %}
+          {% if carousel %}
+            </div>
+          {% else %}
+            </li>
+          {% endif %}
+
+      {% endif %}
+    {% endfor %}
+    {% if carousel %}
+      </div>
+    {% else %}
+      </ul>
+    {% endif %}
+</div>
+
+{% comment %}
+  {
+    "name": "YMAL",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Slider"
+      },
+      {
+        "type": "checkbox",
+        "id": "ymal_product_carousel",
+        "label": "Enable Carousel",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Slide to Show"
+      },
+      {
+        "type": "range",
+        "id": "desktop_product_column",
+        "label": "Desktop slides",
+        "default": 2,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "unit": "col"
+      },
+      {
+        "type": "range",
+        "id": "tablet_product_column",
+        "label": "Tablet slides",
+        "default": 2,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "unit": "col"
+      },
+      {
+        "type": "range",
+        "id": "mobile_product_column",
+        "label": "Mobile slides",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "unit": "col"
+      },
+      {
+        "type": "header",
+        "content": "Items to Scroll"
+      },
+      {
+        "type": "range",
+        "id": "desktop_product_scroll",
+        "label": "Desktop scroll",
+        "default": 2,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "unit": "col"
+      },
+      {
+        "type": "range",
+        "id": "tablet_product_scroll",
+        "label": "Tablet scroll",
+        "default": 2,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "unit": "col"
+      },
+      {
+        "type": "range",
+        "id": "mobile_product_scroll",
+        "label": "Mobile scroll",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "unit": "col"
+      }
+    ]
+  }
+{% endcomment %}

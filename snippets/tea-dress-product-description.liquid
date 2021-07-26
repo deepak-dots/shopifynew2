@@ -1,0 +1,38 @@
+{%- assign body = product.description | replace: '<p>---</p>', '---' | split: '---'  -%}
+{%- capture description -%}{{ body[0] }}{%- endcapture -%}
+<div class="custom-accordin">
+  <div id="accordion" class="accordion">
+    <div class="card mb-0">
+      {%- if body.size -%}
+      <div class="card-header" data-toggle="collapse" href="#collapseOne">
+        <a class="card-title">{{ section.settings.block_label_1 }}</a>
+      </div>
+      <div id="collapseOne" class="card-body collapse show" data-parent="#accordion">
+        {{ description }}
+      </div>
+      {%- endif -%}
+      {% if body.size > 1 %}
+      {% capture product_composition %}{{ body[1] }}{% endcapture%}
+      {% endif %}
+      {% if product_composition %}
+        <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false">
+          <a class="card-title">{{ section.settings.block_label_2a }}</a>
+        </div>
+        <div id="collapseTwo" class="card-body collapse" data-parent="#accordion">
+          {{ product_composition }}
+        </div>
+      {% endif %}
+      {% if body.size > 2 %}
+      {% capture style_and_fit_notes %}{{ body[2] }}{% endcapture%}
+      {% endif %}
+      {% if style_and_fit_notes %}
+        <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo_pc" aria-expanded="false">
+          <a class="card-title">{{ section.settings.block_label_2 }}</a>
+        </div>
+        <div id="collapseTwo_pc" class="card-body collapse" data-parent="#accordion">
+          {{ style_and_fit_notes }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

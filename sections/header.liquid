@@ -1,0 +1,411 @@
+{%- assign social_icons = false -%}
+{%- if
+  settings.social_twitter_link != blank
+  or settings.social_facebook_link != blank
+  or settings.social_pinterest_link != blank
+  or settings.social_instagram_link != blank
+-%}
+  {%- assign social_icons = true -%}
+{%- endif -%}
+<div data-section-id="{{ section.id }}" data-section-type="header-section">
+  {% if section.settings.message %}
+    {% if section.settings.home_page_only == false or template.name == 'index' %}
+      <style>
+        /*
+        .announcement-bar {
+          background-color: {{ section.settings.color_bg }};
+        }
+		*/
+        .announcement-bar {background-color: #f4f4f4; }
+        
+        .announcement-bar--link:hover {
+          {% assign brightness = section.settings.color_bg | color_brightness %}
+
+          {% if brightness <= 192 %}
+            {% assign lightenAmount = 255 | minus: brightness | divided_by: 255 | times: 16 %}
+            background-color: {{ section.settings.color_bg | color_lighten: lightenAmount }};
+          {% else %}
+            {% assign darkenAmount = 255 | divided_by: brightness | times: 8 %}
+            background-color: {{ section.settings.color_bg | color_darken: darkenAmount }};
+          {% endif %}
+        }
+		/*
+        .announcement-bar__message {
+          color: {{ section.settings.color_text }};
+        }
+        */
+      </style>
+
+
+      <div class="announcement-bar hide">
+        {% comment %}
+        <!-- {% if section.settings.message_link_left != blank %}
+            <a href="{{ section.settings.message_link_left }}" class="announcement-bar announcement-bar--link">
+        {% endif %} -->
+            <!-- <p class="announcement-bar__message_left">
+              {{ section.settings.message_text_left | escape }}
+            </p> -->
+        <!-- {% if section.settings.message_link_left != blank %}
+            </a>
+        {% endif %} -->
+        {% endcomment %}
+        {% if section.settings.message_link != blank %}
+            <a href="{{ section.settings.message_link }}" class="announcement-bar announcement-bar--link">
+        {% endif %}
+            <p class="announcement-bar__message text-center">{{ section.settings.message_text | escape }}</p>
+        {% if section.settings.message_link != blank %}
+            </a>
+        {% endif %}
+        <span class="close-bar-btn"></span>
+      </div>
+
+
+
+      <!-- {% if section.settings.message_link == blank %}
+        <div class="announcement-bar">
+      {% else %}
+        <a href="{{ section.settings.message_link }}" class="announcement-bar announcement-bar--link">
+      {% endif %}
+        <p class="announcement-bar__message_left">{{ section.settings.message_text_left | escape }}</p>
+        <p class="announcement-bar__message text-center">{{ section.settings.message_text | escape }}</p>
+
+      {% if section.settings.message_link == blank %}
+      <span class="close-bar-btn"></span>
+        </div>
+      {% else %}
+        </a>
+      {% endif %} -->
+
+
+    {% endif %}
+  {% endif %}
+  <header id="header" class="site-header header" role="banner">
+    <div class="row">
+      <div class="col-3 col-sm-2 col-md-4 text-left">
+        {%- if social_icons -%}
+          <ul class="head-social">
+            {%- if settings.social_pinterest_link != blank -%}
+              <li>
+                <a class="social-icons__link" href="{{ settings.social_pinterest_link | escape }}" aria-describedby="a11y-external-message">
+                  {%- include 'pinterest' -%}
+                  <span class="icon__fallback-text">Pinterest</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if settings.social_facebook_link != blank -%}
+              <li>
+                <a class="social-icons__link" href="{{ settings.social_facebook_link | escape }}" aria-describedby="a11y-external-message">
+                  {%- include 'facebook' -%}
+                  <span class="icon__fallback-text">Facebook</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if settings.social_instagram_link != blank -%}
+              <li>
+                <a class="social-icons__link" href="{{ settings.social_instagram_link | escape }}" aria-describedby="a11y-external-message">
+                  {%- include 'instagram' -%}
+                  <span class="icon__fallback-text">Instagram</span>
+                </a>
+              </li>
+            {%- endif -%}
+          </ul>
+        {%- endif -%}
+        {%- if section.settings.header_style == 'style_2' -%}
+        <div class="search search-toggle left-side"><a href="#">{%- include 'search' -%} Search</a></div>
+        {%- endif -%}
+        {%- if section.settings.header_style == 'style_1' -%}
+          {%- include 'currency-picker' -%}
+        {%- endif -%}
+      </div>
+      <div class="col-6 col-sm-8 col-md-4 text-center">
+        <a href="/" class="logo" title="{{ shop.name }}">
+          {%- include 'suz-logo-01' -%}
+          {%- include 'suz-logo-mobile' -%}
+        </a>
+      </div>
+      <div class="col-3 col-sm-2 col-md-4 text-right">
+        {%- if section.settings.header_style == 'style_2' -%}
+          <div class="currency-menu right-side">
+            {%- include 'currency-picker' -%}
+          </div>
+          {%- endif -%}
+        <ul class="head-right-link">
+          {%- if section.settings.header_style == 'style_1' -%}
+          <li class="search search-toggle"><a href="#">{%- include 'search' -%} Search</a></li>
+          {%- endif -%}
+          {% if shop.customer_accounts_enabled %}
+            <li>
+              {% if customer %}
+                <a href="/account">{{ 'layout.customer.account' | t }}</a>
+              {% else %}
+                <a href="/account/login">{{ 'layout.customer.log_in' | t }}</a>
+              {% endif %}
+            </li>
+          {% endif %}
+          <!-- <li><a href="#swym-wishlist">Wishlist</a></li> -->
+          <li><a href="/apps/swymWishlist/wishlist/index.php?">Favourites</a></li>
+          <li class="bag">Bag <em class="item-count">{{cart.item_count}}</em></li>
+        </ul>
+      </div>
+    </div>
+    {%- include "navlinks-mobile" -%}
+    <nav class="navbar navbar-expand-lg navbar-light text-center m-auto head-nav" role="navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {% include 'site-nav' %}
+
+      </div>
+    </nav>
+    <!--====searchblock====-->
+    <div class="search-block clearfix">
+     <div class="search-field-box">
+      <div class="search-no-result-block text-center mb-5">
+        <p>{{'general.search.empty_search_message' | t }}</p>
+      </div>
+       <form class="search search-bar__form" action="/search" method="get" role="search">
+            <input class="form-control typeahead auto-focus" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}" >
+            <input type="hidden" name="type" value="product">
+            <button type="submit" class="btn btn-border">{{ 'general.search.submit' | t }}</button>
+        </form>
+     </div>
+    </div>
+    <!--====searchblock====-->
+  </header>
+
+  {% if section.settings.align_logo == 'center' %}
+  <nav class="small--hide border-bottom" id="AccessibleNav" role="navigation">
+    {% include 'site-nav', nav_alignment: 'site-nav--centered' %}
+  </nav>
+  {% endif %}
+</div>
+
+
+
+<!--====minicart====-->
+{%- include 'minicart-popup' -%}
+<!--====minicart====-->
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "{{ shop.name }}",
+  {% if section.settings.logo %}
+    {% assign image_size = section.settings.logo.width | append:'x' %}
+    "logo": "https:{{ section.settings.logo | img_url: image_size }}",
+  {% endif %}
+  "sameAs": [
+    "{{ settings.social_twitter_link }}",
+    "{{ settings.social_facebook_link }}",
+    "{{ settings.social_pinterest_link }}",
+    "{{ settings.social_instagram_link }}",
+    "{{ settings.social_tumblr_link }}",
+    "{{ settings.social_snapchat_link }}",
+    "{{ settings.social_youtube_link }}",
+    "{{ settings.social_vimeo_link }}"
+  ],
+  "url": "{{ shop.url }}{{ page.url }}"
+}
+</script>
+
+{% if template.name == 'index' %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "{{ shop.name }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ shop.url }}/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "url": "{{ shop.url }}{{ page.url }}"
+    }
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": {
+    "de": "Titel",
+    "en": "Header",
+    "es": "Encabezado",
+    "fr": "En-tête",
+    "it": "Header",
+    "ja": "ヘッダー",
+    "pt-BR": "Cabeçalho"
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header layout"
+    },
+    {
+      "type": "radio",
+      "id": "header_style",
+      "label": "Select header style",
+      "default": "style_1",
+      "options": [
+        {
+          "value": "style_1",
+          "label": "Style 1"
+        },
+        {
+          "value": "style_2",
+          "label": "Style 2"
+        }
+      ]
+    },
+    {
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": {
+        "de": "Menü",
+        "en": "Menu",
+        "es": "Menú",
+        "fr": "Menu",
+        "it": "Menu",
+        "ja": "メニュー",
+        "pt-BR": "Menu"
+      },
+      "default": "main-menu"
+    },
+    {
+      "type": "header",
+      "content": {
+        "de": "Ankündigungsbereich",
+        "en": "Announcement bar",
+        "es": "Barra de anuncios",
+        "fr": "Barre d'annonces",
+        "it": "Barra degli annunci",
+        "ja": "告知バー",
+        "pt-BR": "Barra de anúncios"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "message",
+      "label": {
+        "de": "Ankündigung anzeigen",
+        "en": "Show announcement",
+        "es": "Mostrar anuncio",
+        "fr": "Afficher l'annonce",
+        "it": "Mostra annuncio",
+        "ja": "告知を表示する",
+        "pt-BR": "Exibir anúncio"
+      },
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "home_page_only",
+      "label": {
+        "de": "Nur Startseite",
+        "en": "Home page only",
+        "es": "Solo página de inicio",
+        "fr": "Page d'accueil uniquement",
+        "it": "Solo home page",
+        "ja": "ホームページのみ",
+        "pt-BR": "Apenas página inicial"
+      },
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "message_text",
+      "label": {
+        "de": "Text",
+        "en": "UPS Text Center",
+        "es": "Texto",
+        "fr": "Texte",
+        "it": "Testo",
+        "ja": "テキスト",
+        "pt-BR": "Texto"
+      },
+      "default": {
+        "de": "Hier etwas ankündigen",
+        "en": "Announce something here",
+        "es": "Anuncia algo aquí",
+        "fr": "Annoncez quelque chose ici",
+        "it": "Annuncia qualcosa qui",
+        "ja": "ここで告知してください",
+        "pt-BR": "Anuncie algo aqui"
+      }
+    },
+    {
+      "type": "url",
+      "id": "message_link",
+      "label": {
+        "de": "Link",
+        "en": "Link",
+        "es": "Enlace",
+        "fr": "Lien",
+        "it": "Link",
+        "ja": "リンク",
+        "pt-BR": "Link"
+      },
+      "info": {
+        "de": "Optional",
+        "en": "Optional",
+        "es": "Opcional",
+        "fr": "Facultatif",
+        "it": "Facoltativo",
+        "ja": "選択させる",
+        "pt-BR": "Opcional"
+      }
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": {
+        "de": "Zeile",
+        "en": "Bar",
+        "es": "Barra",
+        "fr": "Barre",
+        "it": "Barra",
+        "ja": "バー",
+        "pt-BR": "Barra"
+      },
+      "default": "#7796a8"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": {
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fr": "Texte",
+        "it": "Testo",
+        "ja": "テキスト",
+        "pt-BR": "Texto"
+      },
+      "default": "#fff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "navimagebox",
+      "name": "Menu Images",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Navigation Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "nav_image",
+          "label": "Navigation Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "divider_status",
+          "label": "Image Divider"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

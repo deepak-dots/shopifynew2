@@ -1,0 +1,142 @@
+<div class="boutique-page d-block clearfix">
+   <div class="container">
+      <div class="row">
+         <div class="col-12">
+            {% if section.settings.page_title != blank %}
+              <h3 class="text-center">{{ section.settings.page_title | escape }}</h3>
+            {% endif %}
+         </div>
+      </div>
+      {% for block in section.blocks %}
+
+
+      <div class="boutique-store-img d-block mt-3 mb-5 clearfix">
+         {% unless block.settings.banner_image == blank %}
+         <img src="{{ block.settings.banner_image | img_url : '617x411', scale: 2 }}" alt="Store">
+         {% endunless %}
+      </div>
+
+      <div class="address-block d-block clearfix">
+         <div class="row">
+            <div class="col-12 col-sm-12 col-md-4">
+               {% if block.settings.store_address != blank %}
+                  {{ block.settings.store_address }}
+               {% endif %}
+               {% if block.settings.store_opposite_address != blank %}
+                  {{ block.settings.store_opposite_address }}
+               {% endif %}
+               {% if block.settings.consultation_link != blank and block.settings.cta_label !=blank %}
+                  <a href="{{ block.settings.consultation_link }}" class="btn btn-border consult">
+                    {{ block.settings.cta_label }}
+                  </a>
+               {% endif %}
+
+            </div>
+            <div class="col-12 col-sm-12 col-md-8">
+              {% if page.content.size > 10 %}
+              		{{ page.content }}
+               {% else %}
+                 {% if block.settings.block_description != blank %}
+                    {{ block.settings.block_description }}
+                 {% endif %}
+               {% endif %}
+            </div>
+         </div>
+      </div>
+      <div class="local-map d-block clearfix">
+         {% if block.settings.google_map != blank %}
+            {{ block.settings.google_map }}
+         {% endif %}
+      </div>
+
+      {% endfor %}
+   </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "BOUTIQUE CONTENT"
+  },
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "page_title",
+      "label": {
+        "en": "Title"
+      },
+      "default":"Boutiques"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": {
+        "en": "Block Style"
+      },
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "block_description",
+          "label": {
+            "en": "Description"
+          },
+          "default": {
+            "en": "<p>SUZANNAH works with several couture milliners and British shoe designers to create the perfect outfit from head to heel.</p>"
+          },
+		  "info": {
+			"en": "This main text is set on the page. If the page content is blank then the text here is shown instead."
+			}
+        },
+        {
+          "type": "richtext",
+          "id": "store_address",
+          "label": {
+            "en": "Store Address"
+          },
+          "default": {
+            "en": "<p>Visit our store:<br/>Suzannah, 3 New Quebec Street, London, W1H 7RE.</p>"
+          }
+        },
+        {
+          "type": "richtext",
+          "id": "store_opposite_address",
+          "label": {
+            "en": "Store Opposite  Address"
+          },
+          "default": {
+            "en": "<p>Our Atelier is situated opposite the boutique:<br/>The Atelier, 20 New Quebec Street, London W1H 7SB.</p>"
+          }
+        },
+        {
+          "type": "textarea",
+          "id": "google_map",
+          "label": {
+            "en": "Google Map Html"
+          },
+          "default": {
+            "en": "Google Map Html"
+            }
+        },
+        {
+          "type": "image_picker",
+          "id": "banner_image",
+          "label": "Banner Image"
+        },
+        {
+           "id": "cta_label",
+           "type": "text",
+           "label": "CTA Title",
+           "default": "Book A Consultation"
+        },
+        {
+           "id": "consultation_link",
+           "type": "url",
+           "label": "Book A Consultation"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

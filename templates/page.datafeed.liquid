@@ -1,0 +1,30 @@
+{%- layout none -%}
+{%- assign gender = 'female' -%}
+{%- assign age_range = 'adult' -%}
+{%- assign tax = 1 -%}
+{%- if settings.tax-multiplier != blank -%}
+  {%- assign tax = settings.tax-multiplier | times: 1 -%}
+{%- endif -%}
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+	<channel>
+		<title>{{ shop.name }}</title>
+		<link>{{ shop.url }}</link>
+{% for product in collections.all.products %} 
+  {% for variant in product.variants %}
+    {%- assign productColour = "white" -%}
+    {%- for tag in product.tags -%}
+      {%- if tag contains 'colour_' -%}{%- capture productColour -%}{{ tag | remove: "colour_" }}{%- endcapture -%}{%- endif -%}
+  	{%- endfor -%}
+    {%- capture productTitle -%}{{ product.vendor }} - {{ product.title }}{%- endcapture -%}
+		<item>
+			<g:id>{{ variant.id }}</g:id>
+			<g:item_group_id>{{ product.id }}</g:item_group_id>
+			<g:color>{{ productColour }}</g:color>
+            <g:gender>{{ gender }}</g:gender>
+            <g:age_range>{{ age_range }}</g:age_range>
+          	<g:price>{{variant.price | times : tax | money_without_currency | remove: ','}} {{ shop.currency }}</g:price>
+		</item>
+{% endfor %}
+{% endfor %}
+	</channel>
+</rss>

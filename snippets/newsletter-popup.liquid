@@ -1,0 +1,33 @@
+<div class="content hide">
+  {%-  if settings.popup--newsletter--enabled  -%}
+    <div id="mailing-list-module" class="foot-subscrbe clearfix">
+      {%- if settings.mailing_list_form_action.size > 0 -%}
+        <div id="mc-embedded-subscribe-form">
+          <form action="{{ settings.mailing_list_form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mailchimp-form validate contact-form" target="_blank">
+            <h2>{{ 'general.newsletter_popup.newsletter_title' | t }}</h2>
+            <p>{{ 'general.newsletter_popup.newsletter_description' | t }}</p>
+            <div class="subscrive clearfix">
+              <input type="email" name="email" id="mce-EMAIL" class="form-control" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_popup.email_placeholder' | t }}" autocorrect="off" autocapitalize="off" required>
+              <button type="submit" class="btn-border" name="commit" id="Subscribe">{{ 'general.newsletter_popup.submit' | t }}
+               </button>
+            </div>
+          </form>
+        </div>
+      {%- else -%}
+        <div id="mc-embedded-subscribe-form">
+          {% form 'customer' %}
+            <h2>{{ 'general.newsletter_popup.newsletter_title' | t }}</h2>
+            <p>{{ 'general.newsletter_popup.newsletter_description' | t }}</p>
+            <div class="subscrive clearfix">
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <input type="email" name="contact[email]" id="mce-EMAIL" class="form-control" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_popup.email_placeholder' | t }}" autocorrect="off" autocapitalize="off" required>
+              <button type="submit" class="btn-border" name="commit" id="Subscribe">{{ 'general.newsletter_popup.submit' | t }}
+              </button>
+            </div>
+          {% endform %}
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
+<div class="popup-modal-mask"></div>

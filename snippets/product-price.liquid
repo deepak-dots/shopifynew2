@@ -1,0 +1,72 @@
+<!-- snippet/product-price.liquid -->
+
+{%- assign tax = 1 -%}
+{%- if settings.tax-multiplier != blank -%}
+  {%- assign tax = settings.tax-multiplier | times: 1 -%}
+{%- endif -%}
+
+{% if variant.title %}
+  {%- assign compare_at_price = variant.compare_at_price -%}
+  {%- assign price = variant.price -%}
+  {%- assign available = product.available -%}
+  {%- assign price_varies = product.price_varies -%}
+{% else %}
+  {%- assign compare_at_price = 1999 -%}
+  {%- assign price = 1999 -%}
+  {%- assign available = true -%}
+  {%- assign price_varies = false -%}
+{% endif %}
+
+{%- assign money_price = price | times : tax | money -%}
+
+<dl class="price{% if compare_at_price > price %} price--on-sale{% endif %}" data-price>
+
+  {% if section.settings.show_vendor %}
+    <div class="price__vendor">
+      <dt>
+        <span class="visually-hidden">{{ 'products.product.vendor' | t }}</span>
+      </dt>
+      <dd>
+        {{ product.vendor }}
+      </dd>
+    </div>
+  {% endif %}
+
+  <div class="price__regular">
+    <dt>
+      {% if collection.handle == 'atelier-collection' or product.type == 'Atelier' %}
+        <label class="from_label">From</label>
+      {% endif %}
+      <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
+    </dt>
+    <dd>
+      <span class="price-item price-item--regular" data-regular-price>
+        {% if available %}
+          {% if compare_at_price > price %}
+            {{ compare_at_price | times : tax | money }}
+          {% elsif price_varies %}
+        	<!-- {{ product.price_max | times : tax | money }} -->
+        	{{ money_price }}
+          {% else %}
+            {{ money_price }}
+          {% endif %}
+        {% else %}
+          {{ 'products.product.sold_out' | t }}
+        {% endif %}
+      </span>
+    </dd>
+  </div>
+  {% if compare_at_price > price %}
+  <div class="price__sale">
+    <dt>
+      <span class="visually-hidden visually-hidden--inline">{{ 'products.product.sale_price' | t }}</span>
+    </dt>
+    <dd>
+      <span class="price-item price-item--sale" data-sale-price>
+        {{ money_price }}
+      </span>
+      <span class="price-item__label" aria-hidden="true">{{ 'products.product.on_sale' | t }}</span>
+    </dd>
+  </div>
+  {% endif %}
+</dl>

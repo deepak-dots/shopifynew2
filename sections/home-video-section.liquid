@@ -1,0 +1,75 @@
+<div data-section-id="{{ section.id }}" data-section-type="video-section">
+  <div class="video-block-section home-feature-block d-block clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-8 m-auto">
+          <div class="video-box">
+            {%- if section.settings.video_link != blank -%}
+              <video autoplay muted loop class="video-plyr" data-plyr-config='{ "controls": ["play-large"]}' controls crossorigin playsinline {% if section.settings.image %} poster="{{ section.settings.image | img_url: '2048x' }}"{% endif %} id="player" style="width:100%">
+                <source src="{{ section.settings.video_link }}" type="video/mp4"/>
+              </video>
+              <div class="mute-unmute">
+                <div class="unmute-bt"><img src="{{ 'mute.svg' | asset_url }}" alt="" width="30px" height="30px"></div>
+                <div class="mute-bt" style="display: none;"><img src="{{ 'volume.svg' | asset_url }}" alt="" width="30px" height="30px"></div>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "de": "Video",
+    "en": "Video",
+    "es": "Video",
+    "fr": "Vidéo",
+    "it": "Video",
+    "ja": "動画",
+    "nl": "Video",
+    "pt-BR": "Vídeo",
+    "zh-CN": "视频",
+    "zh-TW": "影片"
+  },
+  "class": "index-section video-section",
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "video_link",
+      "label": "MP4 Video URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "de": "Video",
+        "en": "Video",
+        "es": "Video",
+        "fr": "Vidéo",
+        "it": "Video",
+        "ja": "動画",
+        "nl": "Video",
+        "pt-BR": "Vídeo",
+        "zh-CN": "视频",
+        "zh-TW": "影片"
+      },
+      "category": {
+        "de": "Video",
+        "en": "Video",
+        "es": "Video",
+        "fr": "Vidéo",
+        "it": "Video",
+        "ja": "動画",
+        "nl": "Video",
+        "pt-BR": "Vídeo",
+        "zh-CN": "视频",
+        "zh-TW": "影片"
+      }
+    }
+  ]
+}
+{% endschema %}

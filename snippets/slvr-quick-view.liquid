@@ -1,0 +1,14 @@
+{% capture datael %}
+  {% for variant in product.variants %}
+  {% if variant.available %}
+    data-{{ variant.id }}-qty="{{variant.inventory_quantity}}" data-{{ variant.id }}-policy="{{variant.inventory_policy}}" data-{{ variant.id }}-value="{{variant.title}}"
+    {% endif %}
+  {% endfor %}
+{% endcapture%}
+{% capture vcls %}{%- for variant in product.variants -%}{%- if variant.available -%}slvr-qv-product-{{ variant.id | append: ' '}}{%- endif -%}{%- endfor -%}{% endcapture %}
+<div class="{{ vcls | strip }}" {{ datael }}><a class="slvr-qv-button d-noness d-md-block"  href="#slvr-qv-showqv"title="Quick View" handle="{{product.handle}}" ></a></div>
+{%- if is_loaded_settings -%}
+{%- else -%}
+{%- assign is_loaded_settings = true  -%}
+
+{%- endif -%}

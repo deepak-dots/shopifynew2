@@ -1,0 +1,75 @@
+{%- assign tax = 1 -%}
+{%- if settings.tax-multiplier != blank -%}
+  {%- assign tax = settings.tax-multiplier | times: 1 -%}
+{%- endif -%}
+
+<div id="slvr-qv-showqv" class="slvr-bm-1" style="display: none;" >
+  <div>
+    <input type="hidden" id="tax" value="{{ tax }}" />
+    <!--START PRODUCT-->
+    <div class="quick-view-container fancyox-view-detail">
+      <div id="slvr-qv-left" class="slvr-left">
+        <div id="slvr-qv-sale"  class="slvr-qv-sale slvr-qv-hidden">Sale</div>
+        <!-- START ZOOM IMAGE-->
+        <div class="slvr-qv-zoom-container">
+          <div class="zoomWrapper">
+            <div id="slvr-qv-zoomcontainer" class='sqa-qv-zoomcontainer'>
+              <!-- Main image  ! DON'T PUT CONTENT HERE! -->
+            </div>
+          </div>
+        </div>
+        <!-- END ZOOM IMAGE-->
+        <!-- START GALLERY-->
+        <div id="slvr-qv-galleryid" class="slvr-qv-gallery">
+          <!-- Collection of image ! DON'T PUT CONTENT HERE!-->
+        </div>
+        <!-- END GALLERY-->
+      </div>
+
+      <!--START BUY-->
+      <div id ="slvr-qv-right" class="slvr-right">
+        <div id="slvr-qv-title" class="name-title" >
+          <!-- Title of product ! DON'T PUT CONTENT HERE!-->
+        </div>
+        <div id ="slvr-qv-price-container" class="slvr-qv-price-container"  >
+          <!-- price information of product ! DON'T PUT CONTENT HERE!-->
+        </div>
+        <div id="slvr-qv-des" class="slvr-qv-row">
+          <!-- description of product ! DON'T PUT CONTENT HERE!-->
+        </div>
+        <div id='slvr-qv-cartform'>
+          <form id="slvr-qv-add-item-form"  method="post">
+            <!-- Begin product options ! DON'T PUT CONTENT HERE!-->
+            <div class="slvr-qv-product-options">
+              <div id="slvr-qv-variant-options" class="slvr-qv-optionrow">
+                <!-- variant options  of product  ! DON'T PUT CONTENT HERE!-->
+              </div>
+              <div class="slvr-qv-optionrow">
+                <input id="slvr-qv-quantity" min="1" type="hidden" name="quantity" value="1"  />
+              </div>
+              <div class="slvr-qv-optionrow">
+                <p id="slvr-qv-unavailable" class="slvr-sold-out slvr-qv-hidden">Unavailable</p>
+                <p id="slvr-qv-sold-out" class="slvr-sold-out slvr-qv-hidden">Sold Out</p>
+                <input type="submit" class="slvr-qv-cartbtn slvr-qv-hidden btn btn-border" value="ADD TO BAG" />
+              </div>
+            </div>
+            <!-- End product options -->
+          </form>
+        </div>
+        <div class="slvr-qv-row">
+          <a id="slvr-qv-detail"  href="" >View Full Details page</a>
+        </div>
+      </div>
+      <!--END BUY-->
+    </div>
+    <!--END PRODUCT-->
+  </div>
+</div>
+
+
+<div id="slvrqv-metadata"
+autoconfig = "yes"
+noimage = "{{ 'slvr-qv-no-image.jpg' | asset_url }}"
+moneyFormat = '{{ shop.money_format }}'
+jsondata = "eyJibnRfdGV4dCI6IlFVSUNLIFNIT1AiLCJibnRfdGV4dF9mb250Ijoib3BlbiBzYW5zIiwiYm50X3RleHRfZm9udHNpemUiOiIxMnB4IiwiYm50X3RleHRfY29sb3IiOiIjZmZmZmZmIiwiYm50X3RleHRfaG92ZXIiOiIjOWM5YzljIiwiYm50X2NvbG9yIjoiIzAwMDAwMCIsImJudF9jb2xvcl9ob3ZlciI6IiMwMDAwMDAiLCJibnRfcG9zc2l0aW9uIjoiYm90dG9tIiwiaW1nX21haW5fd2lkdGgiOiIzNDVweCIsIndkX2hlaWdodCI6IjUwMCIsIndkX3dpZHRoIjoiODYwIiwiY2FydF9nbyI6Im5vIiwiY2FydGNvdW50IjoiI2NhcnQtY291bnR8I21pbmljYXJ0ICNjYXJ0LXRhcmdldC1kZXNrdG9wfCNkcmF3ZXIgLmNvbnRhaW5lcnwud3JhcHBlciAuaGVhZGVyLWNhcnQtYnRufCNjYXJ0LXRvdGFsICNjYXJ0LXByaWNlfCNjYXJ0LWNvdW50IC5uby11bmRlcmxpbmV8LmZyIC5jYXJ0IC50b3RhbF9wcmljZXwudW5zdHlsZWQgLmZyIC5jYXJ0fC53cmFwcGVyICNjYXJ0VG9nZ2xlfCN1bWJyZWxsYSAuY2FydC1saW5rIC5pY29ufCNtaW5pLWNhcnQgI2NhcnQtdGFyZ2V0fC50b29sYmFyLXdyYXBwZXIgLnVuc3R5bGVkIiwiY2FydF90b3RhbCI6IiNjYXJ0aWQtbmVlZC10by1yZWxvYWQiLCJjYXJ0X25vdGlmeV9hZGRfZm9ybWF0IjoiVGhpcyBpdGVtIGlzIGFscmVhZHkgaW4gKllvdXIgQ2FydCUuIiwiY2FydF9ub3RpZnlfaW5fZm9ybWF0IjoiSXRlbSBhZGRlZCB0byBjYXJ0ISAqVmlldyBDYXJ0JS4iLCJjYXJ0X2NvbG9yIjoiIzAwMDAwMCIsInNhbGVfaWNvbl9jb2xvciI6IiNmZmZmZmYiLCJwcmljZV9jb2xvciI6IiMwMDAwMDAiLCJsaW5rX2NvbG9yIjoiIzAwMDAwMCIsInRpdGxlX2NvbG9yIjoiIzAwMDAwMCIsInF2X2Rpc2FibGUiOm51bGwsImlzX3JhdGVkIjpmYWxzZSwicmF0ZV9zY29yZSI6MCwicmF0ZV9jb21tZW50IjoiIiwiYnRuX21vYmlsZV9kaXNwbGF5IjoiYWx3YXlzX3Nob3ciLCJkZXNfbnVtIjoiMzAifQ==" ></div>
+{{ 'slvr-qv-scripts-noconfig.js' | asset_url  | script_tag }}

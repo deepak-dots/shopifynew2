@@ -1,0 +1,6 @@
+{% assign img_url = img | img_url: '200x200', crop: 'center', scale: 2 %}
+<picture>
+  <source media="(max-width: 650px)" srcset="{{img | img_url: '1x1'}}">
+  <source media="(max-width: 1500px)" srcset="{{img | img_url: '150x150', crop: 'center', scale: 2}}">
+  <img src="{{img | img_url: '200x200', crop: 'center', scale: 2}}" alt="{{alt}}" style="width:auto;">
+</picture>

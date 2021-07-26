@@ -1,0 +1,96 @@
+<div class="product-template__container page-width" id="productSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  <div class="content-page clearfix">
+    <div class="container">
+    <h1 class="h1">{{ product.title }}</h1>
+    <div class="img-container clearfix">
+      {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
+    <img src="{{ featured_image | img_url: 'master' }}" alt="img">
+    </div>
+    <div class="rte">
+      {{ product.description }}
+    </div>
+
+    <div class="vip-form clearfix">
+      {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-cart-submit: 'data-cart-submit' %}
+        {% unless product.has_only_default_variant %}
+          {% for option in product.options_with_values %}
+            <div class="selector-wrapper js product-form__item">
+              <label class="label--hidden d-none" for="SingleOptionSelector-{{ forloop.index0 }}">
+                {{ option.name }}
+              </label>
+              <select class="form-control single-option-selector single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                {% for value in option.values %}
+                  <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          {% endfor %}
+        {% endunless %}
+
+        <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
+          {% for variant in product.variants %}
+            {% if variant.available %}
+              <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}" data-qty="{{variant.inventory_quantity}}" data-policy="{{variant.inventory_policy}}" data-value="{{variant.title}}">
+                {{ variant.title }}
+              </option>
+            {% else %}
+              <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+
+        {% if section.settings.show_quantity_selector %}
+          <div class="product-form__item product-form__item--quantity">
+            <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+            <input type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1" class="product-form__input" pattern="[0-9]*">
+          </div>
+        {% endif %}
+
+        <div class="product-form__item product-form__item--submit{% if section.settings.enable_payment_button %} product-form__item--payment-button{% endif %}{% if product.has_only_default_variant %} product-form__item--no-variants{% endif %}">
+          <button type="submit" name="add" id="AddToCart-{{ section.id }}" {% unless current_variant.available %}disabled="disabled"{% endunless %} class="btn btn-border  product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}">
+            <span id="AddToCartText-{{ section.id }}">
+              {% unless current_variant.available %}
+                {{ 'products.product.sold_out' | t }}
+              {% else %}
+                {{ 'products.product.add_giftcard' | t }}
+              {% endunless %}
+            </span>
+          </button>
+          {% if section.settings.enable_payment_button %}
+            {{ form | payment_button }}
+          {% endif %}
+        </div>
+      {% endform %}
+      <a href="#" class="wishlist-icon whislist-link product_{{ product.id }}" data-swaction="addToWishlist" data-product-id="{{product.id | json}}"><i class="icon">{%- include 'blackcolor-heart' -%}</i> Favourite</a>
+      {% include 'swym-product-view', product: product %}
+    </div>
+    <div class="">
+      {{ section.settings.return_policy }}
+    </div>
+    </div>
+  </div>
+</div>
+{% unless product == empty %}
+<script type="application/json" id="ProductJson-{{ section.id }}">
+{{ product | json }}
+</script>
+{% endunless %}
+{% schema %}
+{
+  "name": {
+    "en": "Gift Card"
+  },
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "return_policy",
+      "label": {
+        "en": "Return Policy"
+      },
+      "default": "<p>Return policy dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate.</p>"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,38 @@
+{%- if search.performed == false -%}
+  <div class="section-header text-center search-result-head">
+    <h1 class="h2">{{ 'general.search.title' | t }}</h1>
+{%- else -%}
+  <div class="section-header text-center search-result-head">
+    <h1 class="h2">
+      {% if search.results_count > 0 %}
+        <span class="visually-hidden">{{ 'general.search.heading' | t }}:</span>
+        {{search.terms | prepend : "Search Results for "}}
+      {% else %}
+      <span class="visually-hidden">{{ 'general.search.heading' | t }}:</span>
+      {{ 'general.search.no_results_html' | t: terms: search.terms }}
+      {% endif %}
+    </h1>
+    <a href="/search" class="newsearch search-toggle">{{ 'general.search.new_search' | t }}</a>
+{%- endif -%}
+  </div>
+
+{% paginate search.results by 1000 %}
+{% if search.performed %}
+<div class="container" id="Collection">
+  <ul class="row grid grid--uniform grid--view-items search-result-list">
+    {% for item in search.results %}
+    {%- unless item.tags contains 'print' -%}
+      <li class="grid__item grid__item--collection-template col-6 col-sm-6 col-md-4 col-lg-3">
+        {% if item.object_type == 'product' %}
+        {% include 'product-card-grid', product: item, max_height: 488 %}
+        {% endif %}
+      </li>
+     {%- endunless -%}
+    {% endfor %}
+  </ul>
+</div>
+    {% if paginate.pages > 1 %}
+      {% include 'pagination' %}
+    {% endif %}
+{% endif %}
+{% endpaginate %}

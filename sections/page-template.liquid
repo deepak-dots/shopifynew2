@@ -1,0 +1,49 @@
+<div class="content-page clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-2">
+        {%- assign side_bar = section.settings.side_menu -%}
+        <ul class="side-nav">
+        {%- for link in linklists[side_bar].links -%}  
+          {%- if link.url contains page.url -%}
+            <li><a href="{{ link.url }}" class="active">{{ link.title }}</a></li>
+          {%- else -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endif -%}              
+        {%- endfor -%}
+        </ul>
+      </div>
+      <div class="col-12 col-sm-12 col-md-8">
+        <div class="content-block d-block clearfix">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-10 m-auto">
+              <h1 class="h4">{{ page.title }}</h1>
+              <div class="rte">
+                {{ page.content }}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {   
+    "en": "PAGE CONTENT"
+  },
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "side_menu",
+      "label": {        
+        "en": "Side Menu"
+      }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,19 @@
+<!--  Redirect broken links to Homepage -->
+<script>
+  var hostdomain = location.protocol + "//" + location.host;
+  console.log(document.referrer);
+  console.log(hostdomain);
+  if (document.referrer.indexOf(hostdomain) !== 0){
+  	 window.location.assign(hostdomain);
+  }
+</script>;
+
+<div class="page-width">
+  <div class="empty-page-content text-center">
+    <h1>{{ 'general.404.title' | t }}</h1>
+    <p>{{ 'general.404.subtext' | t }}</p>
+    <p>
+      <a href="/" class="btn btn--has-icon-after">{{ 'general.404.link' | t }}{% include 'icon-arrow-right' %}</a>
+    </p>
+  </div>
+</div>

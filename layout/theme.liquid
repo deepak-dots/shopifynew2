@@ -1,0 +1,332 @@
+{%- comment %}<locksmith:53e1>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:53e1>{% endcomment -%}
+
+<!doctype html>
+<!--[if IE 9]> <html class="ie9 no-js" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{ shop.locale }}"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=0">
+  <meta name="theme-color" content="{{ settings.color_button }}">
+  <meta name="facebook-domain-verification" content="fhqpzmfmha9sux9xvftyk0g6gwfpa9" />
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <meta name="google-site-verification" content="V4oZl0eC_V_l4O-KPihCP24hqfhFZcoLdTeKcpNpvpU" />
+  <meta name="google-site-verification" content="EewBaqaBPlLV8Hz7swLjOYFv9funOKEaU7f6iN9ncbk" />
+  <!-- <meta name="pinterest" content="nopin" /> -->
+  
+  {%- if settings.favicon != blank -%}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  {%- endif -%}
+
+  {%- capture seo_title -%}
+    {%- if template == 'search' and search.performed == true -%}
+      {{ 'general.search.heading' | t: count: search.results_count }}: {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+    {%- else -%}
+      {{ page_title }}
+    {%- endif -%}
+    {%- if current_tags -%}
+      {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+    {%- endif -%}
+    {%- if current_page != 1 -%}
+      &ndash; {{ 'general.meta.page' | t: page: current_page }}
+    {%- endif -%}
+    {%- assign escaped_page_title = page_title | escape -%}
+    {%- unless escaped_page_title contains shop.name -%}
+      &ndash; {{ shop.name }}
+    {%- endunless -%}
+  {%- endcapture -%}
+  <title>{{ seo_title | strip }}</title>
+
+  {%- if page_description -%}
+    {%- comment %}<locksmith:3e94>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+    {%- comment %}</locksmith:3e94>{% endcomment -%}
+  {%- endif -%}
+
+  {% include 'social-meta-tags' %}
+  <!-- <link rel="stylesheet" href="https://use.typekit.net/nyq8tiu.css"> -->
+  
+  <link rel="stylesheet" href="https://use.typekit.net/vid0feu.css">
+
+  {% if template.name == "index" %}
+  <script>
+       function loadStyleSheet(src){
+            if (document.createStyleSheet) document.createStyleSheet(src);
+            else {
+                var stylesheet = document.createElement('link');
+                stylesheet.href = src;
+                stylesheet.rel = 'stylesheet';
+                stylesheet.type = 'text/css';
+                document.getElementsByTagName('head')[0].appendChild(stylesheet);
+            }
+        }
+  </script>
+  
+    {% comment %}
+  	For INDEX page only we use a custom CSS file that includes only the styles used on the page.
+  	This can be generated using this CHROME module: https://github.com/painty/CSS-Used-ChromeExt
+  	We then load the standard CSS files afterwards.
+  
+  	{% endcomment %}
+  	{{ 'homepage.css' | asset_url | stylesheet_tag }}
+  	{% comment %}{{ '_theme.scss.css' | asset_url | stylesheet_tag }}{% endcomment %}
+  	<script>
+      function loadStyles(){
+      	loadStyleSheet('{{ 'mobile-menu.scss.css' | asset_url }}');
+        loadStyleSheet('{{ 'prettydropdowns.scss.css' | asset_url }}');
+        loadStyleSheet('{{ 'imageviewer.css' | asset_url }}');
+        loadStyleSheet('{{ 'theme.scss.css' | asset_url }}');
+        loadStyleSheet('{{ 'nap.scss.css' | asset_url }}');
+      }
+      setTimeout(loadStyles,1000);
+    </script>
+  {% else %}
+    {{ 'mobile-menu.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'prettydropdowns.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'imageviewer.css' | asset_url | stylesheet_tag }}
+    {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'nap.scss.css' | asset_url | stylesheet_tag }}
+  	{{ 'oldie.css' | asset_url | stylesheet_tag }}
+  {% endif %}
+  <!-- disables sticky header on smaller desktop screens -->
+  {{ 'nonstick.css' | asset_url | stylesheet_tag }}
+  
+  <script>
+    var theme = {
+      strings: {
+        addToCart: {{ 'products.product.add_to_cart' | t | json }},
+        soldOut: {{ 'products.product.sold_out' | t | json }},
+        unavailable: {{ 'products.product.unavailable' | t | json }},
+        regularPrice: {{ 'products.product.regular_price' | t | json }},
+        sale: {{ 'products.product.on_sale' | t | json }},
+        showMore: {{ 'general.filters.show_more' | t | json }},
+        showLess: {{ 'general.filters.show_less' | t | json }},
+        addressError: {{ 'sections.map.address_error' | t | json }},
+        addressNoResults: {{ 'sections.map.address_no_results' | t | json }},
+        addressQueryLimit: {{ 'sections.map.address_query_limit_html' | t | json }},
+        authError: {{ 'sections.map.auth_error_html' | t | json }},
+        newWindow: {{ 'general.accessibility.link_messages.new_window' | t | json }},
+        external: {{ 'general.accessibility.link_messages.external' | t | json }},
+        newWindowExternal: {{ 'general.accessibility.link_messages.new_window_and_external' | t | json }}
+      },
+      moneyFormat: {{ shop.money_format | json }}
+    },
+    popup_config = {
+      enabled: {{ settings.popup--enabled }},
+      newsletter_enabled: {{ settings.popup--newsletter--enabled }},
+      social_icons_enabled  : {{ settings.popup--social--enabled }},
+      show_image_enabled    : {{ settings.popup--show-image--enabled }},
+      image_link: "{{ settings.popup--image-url }}",
+      seconds_until: {{ settings.popup--seconds }},
+      show_image_url: '{{ settings.popup_image | img_url: "large" }}',
+      popup_heading: {{ 'general.newsletter_popup.newsletter_title' | t | json }},
+      popup_subheading: {{ 'general.newsletter_popup.newsletter_description' | t | json }},
+      newsletter_email_blank: {{ 'general.newsletter_popup.newsletter_email_blank' | t | json }},
+      newsletter_success_message: {{ 'general.newsletter_popup.newsletter_success_message' | t | json }},
+      days_until: "{{ settings.popup--days }}",
+      storage_key: 'suzannah_popup_storage'
+    }
+
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+  </script>
+  <script type="application/json" id="cartJSON">{{ cart | json }}</script>
+
+  <!--[if (lte IE 9) ]>{{ 'match-media.min.js' | asset_url | script_tag }}<![endif]-->
+
+  {%- if template.directory == 'customers' -%}
+    <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script><!--<![endif]-->
+    <!--[if lte IE 9]><script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script><![endif]-->
+  {%- endif -%}
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'lazysizes.js' | asset_url }}" async="async"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'lazysizes.min.js' | asset_url }}"></script><![endif]-->
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'vendor.js' | asset_url }}"></script><![endif]-->
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'jquery-simple-mobilemenu.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lte IE 9]><script src="{{ 'jquery-simple-mobilemenu.js' | asset_url }}"></script><![endif]-->
+
+  <!-- note minified theme_min.js below -->
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'theme_min.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+
+  <!--[if lte IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
+  <script src="{{ 'jquery-scrolltofixed.js' | asset_url }}" defer="defer"></script>
+  {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+  {{ 'rivets-cart.js' | asset_url  | script_tag }}
+  {%- if template.name == 'product' -%}
+  <script src="{{ 'nap.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+  <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+  <script type="text/javascript" async="" src="{{ 'slvr-qv-scripts-noconfig.js' | asset_url }}&shop={{shop.url}}"></script>
+
+
+  {% if product.template_suffix == 'dress-maker' or template == 'cart' %}
+    {{ 'jquery.fs.zoomer.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'jquery.fs.zoomer.js' | asset_url }}" defer="defer"></script>
+    {{ 'dress-maker-app.scss.css' | asset_url | stylesheet_tag }}
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.8.8/pixi.min.js" integrity="sha512-sSAdD5F4KTNhbn+dNCMjsF5SUcDgjrJnYUnrM3rSngcABsDQ0iO3bdeDjguwsNyVtkMGamiDEb6v6xgVMLqy3A==" crossorigin="anonymous" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://code.createjs.com/1.0.0/preloadjs.min.js" type="text/javascript"></script>
+    <script src="{{ 'barn_app_engine.js' | asset_url }}" defer="defer"></script>
+
+    <script src="{{ 'dress-maker-app.js' | asset_url }}" defer="defer"></script>
+  {% endif %}
+
+
+  {{ content_for_header }}
+  {%- include 'slvr-quick-view-init' -%}
+  {%- if template contains 'product' -%}
+  {%- assign ymal_product_count = product.metafields.ymal | size -%}
+  {%- if ymal_product_count > 0 -%}
+  {%- assign ymal_product_cls = 'complement-your-look-block' -%}
+  {%- else -%}
+  {%- assign ymal_product_cls = '' -%}
+  {%- endif -%}
+  {%- endif -%}
+  
+ 
+  
+  <!-- Hotjar Tracking Code for https://www.suzannah.com/ -->
+  <script>
+      (function(h,o,t,j,a,r){
+          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+          h._hjSettings={hjid:1233999,hjsv:6};
+          a=o.getElementsByTagName('head')[0];
+          r=o.createElement('script');r.async=1;
+          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+          a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+  <!-- /Hotjar -->
+  
+  <!-- Pinterest Tracker -->
+  <script type="text/javascript">
+  !function(e){if(!window.pintrk){window.pintrk=function()
+  {window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+  n=window.pintrk;n.queue=[],n.version="3.0";var
+  t=document.createElement("script");t.async=!0,t.src=e;var
+  r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r)}}
+  ("https://s.pinimg.com/ct/core.js"); 
+
+  pintrk('load','2615121033486', { em: '{{ customer.email }}', });
+  pintrk('page');
+  </script> 
+  <noscript> 
+  <img height="1" width="1" style="display:none;" alt=""
+  src="https://ct.pinterest.com/v3/?tid=2615121033486&noscript=1" /> 
+  </noscript>
+  <!-- /Pinterest Tracker -->
+
+  {% render 'easy-gdpr-settings' %}
+
+{% include 'globo.formbuilder.scripts' %}
+
+                    <!-- Global-e CSS Start-->
+                    <link id="GEPIStyles" rel="stylesheet" href="//gepi.global-e.com/includes/css/10000727" />
+                    <!-- Global-e CSS End-->
+                    
+<!--begin-boost-pfs-filter-css-->
+  {% render 'boost-pfs-style' %}
+<!--end-boost-pfs-filter-css-->
+
+
+</head>
+
+
+
+<body class="template-{{ template | split: '.' | first }} {{ template }} {{ ymal_product_cls }} {% if template == "product" %}product-{{ product.handle }}{% endif %}">
+
+  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+  <div id="SearchDrawer" class="search-bar drawer drawer--top" role="dialog" aria-modal="true" aria-label="{{ 'general.search.placeholder' | t }}">
+    <div class="search-bar__table">
+      <div class="search-bar__table-cell search-bar__form-wrapper">
+        <form class="search search-bar__form" action="/search" method="get" role="search">
+          <input class="search__input search-bar__input" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}">
+          <button class="search-bar__submit search__submit btn--link" type="submit">
+            {% include 'icon-search' %}
+            <span class="icon__fallback-text">{{ 'general.search.submit' | t }}</span>
+          </button>
+        </form>
+      </div>
+      <div class="search-bar__table-cell text-right">
+        <button type="button" class="btn--link search-bar__close js-drawer-close">
+          {% include 'icon-close' %}
+          <span class="icon__fallback-text">{{ 'general.search.close' | t }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {% section 'header' %}
+
+  <div class="page-container" id="PageContainer">
+    <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+  {% section 'footer' %}
+    <script type="text/javascript">
+      window.addEventListener('DOMContentLoaded', function() {
+        (function($) {
+          $(document).ready(function() {
+            var cartJSON = JSON.parse(document.getElementById('cartJSON').innerHTML)
+            CartJS.init(cartJSON, {
+              'debug': false,
+              'dataAPI': true,
+              'requestBodyClass': 'cart-loading',
+              'moneyFormat': '{{ shop.money_format}}',
+              'moneyWithCurrencyFormat': '{{ shop.money_with_currency_format }}'
+            });
+          });
+        })(jQuery);
+      });
+    </script>
+
+    <div id="slideshow-info" class="visually-hidden" aria-hidden="true">
+      {{- 'sections.slideshow.navigation_instructions' | t -}}
+    </div>
+
+  </div>
+
+  <ul hidden>
+    <li id="a11y-refresh-page-message">{{ 'general.accessibility.refresh_page' | t }}</li>
+  </ul>
+  {%- include 'newsletter-popup' -%}
+  {%- if settings.show_multiple_currencies -%}
+    {%- include 'currencies' -%}
+  {%- endif -%}
+  <div class="overlay"></div>
+  {% include 'slvr-quick-view-template' %}
+
+{% include 'swymSnippet' %}
+{% include 'barnSwymVAT' %}
+{% include 'pinterestSnippet' %}
+  <script src="//code.tidio.co/nssnk6gh0p3vr50yba3pyqi70yelthnb.js">    
+</script>
+<!-- Global-e Script Start-->
+                    <script id="globaleScript">
+                      (function () {                       
+                        var s = document.createElement('script');
+                        s.type = 'text/javascript';
+                        s.async = true;
+                        s.src = '//gepi.global-e.com/includes/js/10000727';
+                        document.getElementsByTagName('head')[0].appendChild(s);
+                    })();
+                    </script>
+                    {% if customer.id  %}
+                        <input type="hidden" name="customer_id" id="customer_id" value="{{ customer.id }}_{{ customer.id | append: "!#Gl0b@lE-$3cr3t!)%1#" | sha1 }}">
+                    {% endif %}
+                    <!-- Global-e Script End-->
+                    
+<!--begin-boost-pfs-js-->
+  {% render 'boost-pfs' %}
+<!--end-boost-pfs-js-->
+</body>
+</html>

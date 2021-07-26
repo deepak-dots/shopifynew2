@@ -1,0 +1,148 @@
+{%- assign tax = 1 -%}
+{%- if settings.tax-multiplier != blank -%}
+  {%- assign tax = settings.tax-multiplier | times: 1 -%}
+{%- endif -%}
+<div class="tax-value hide">{{tax}}</div>
+<div class="cart-page d-block clearfix" data-section-type="cart-template" class="two-col-section clearfix" data-cart-view="data-cart-view">
+   <div class="container">
+      <div class="row">
+         <div class="col-12">
+            <div class="cp-center-head text-center">
+               <h1>Shopping Cart</h1>
+               <p>You have <span rv-show="cart.item_count | lt 1">0</span><span rv-show="cart.item_count | gt 0"><span rv-show="cart.item_count" rv-text="cart.item_count"></span></span> item in your shopping bag. <a href="#" class="empty" onclick="CartJS.clear();" >Empty Bag</a></p>
+            </div>
+         </div>
+         <div class="col-12">
+            <div class="cart-block">
+              <form action="/cart" method="post" novalidate class="cart1" rv-show="cart.item_count | gt 0">
+               <div class="cart-table">
+                <div class="cart-detail-row d-block position-relative clearfix" rv-each-item="cart.items">
+                  <div class="ct-row product-desc sz-product-desc-info" rv-data-id="item.id" rv-data-quantity="item.quantity">
+                     <div class="ct-product wd1">
+                      <a rv-href="item.url">
+                        <img rv-src="item.image | productImageSize '330x330@2x'" rv-alt="item.title | escape" />
+                      </a>
+                        <h4><a rv-href="item.url" rv-text="item.product_title"></a></h4>
+                        <ul>
+                            <li rv-each-property="item.propertyArray < properties" rv-class="property.name" rv-data-id="property.name" rv-data-name="property.value" rv-data-quantity="item.quantity">
+                                <font rv-text="property.name"></font>: <font rv-text="property.value"></font>
+                            </li>
+                        </ul> 
+
+                     </div>
+                     <div class="mobile-block">
+                       <div class="row">
+                        <div class="col" rv-each-opt="item.variant_options" rv-hide="opt | includes 'Default'">
+                          <span rv-text="opt"></span>
+                        </div>
+                        <div class="col mr-4 text-right" rv-if="item.print | isEmpty" rv-html="item.price | times {{tax}} | money"></div>
+                       </div>
+                     </div>
+                     <a href="#" class="remove-item sz-remove-cartitem" rv-if="item.print | isEmpty" rv-data-cart-remove="index | plus 1"><img src="{{ 'close.svg' | asset_url }}" alt="product"></a>
+                  </div>
+                </div>
+                <div class="cart-footer d-block clearfix">
+                     <div class="cart-total-block">
+                        <div class="total">
+                          Total<span class="js-total-price" rv-html="cart.total_price | times {{tax}} | money"></span><span class="dcode-fix-message">Calculating...</span>
+                           <span class="dcode-currency"></span>
+                           <button type="submit" name="checkout" class="btn btn-border">Proceed to checkout</button>
+                           
+                        </div>
+                        <a href="/collections/all" class="continue-link">Continue Shopping</a>
+                     </div>
+                     <div class="cart-payment-option">
+                       {%comment%}
+                        <p>We accept Visa, Mastercard, PayPal and Amex.</p>
+                        <img src="{{ 'payment-card.jpg' | asset_url }}" alt="card">
+                       {%endcomment%}
+                       <div class="payment-icon">
+                        <img src="{{ 'payment--card-icon.png' | asset_url }}" alt="card">
+                       </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="bdr d-flex flex-wrap">
+                 {% include 'toshi-tbyb' %}
+               </div>
+              </form>
+               <div class="row">
+                  {%- if section.settings.del_info -%}
+                    <div class="col-12 col-sm-12 col-md-4">
+                      <p>{{section.settings.del_info}}</p>
+                   </div>
+                 {%- endif -%}
+                 {%- if section.settings.duties_info -%}
+                  <div class="col-12 col-sm-12 col-md-4">
+                     <p>{{section.settings.duties_info}}</p>
+                  </div>
+                  {%- endif -%}
+                  {%- if section.settings.shipping_info -%}
+                  <div class="col-12 col-sm-12 col-md-4">
+                     <p>{{section.settings.shipping_info}}</p>
+                  </div>
+                {%- endif -%}
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div id="toshi-faq-modal"></div>
+<style>
+  /* the discount app and the tax fix bugs out when the amount is applied so we hide it and then re-load the page with JS */
+  body.hide-dcode #dcodeInfo{ display:none; }
+  body.hide-dcode .js-total-price{ display:none; }
+  .dcode-fix-message, .dcode-currency{ display:none; }
+  
+  /* totally hide to discount form. */
+  #dcodeOuterWrapper{ display:none!important; }
+</style>
+{% schema %}
+{
+  "name": {
+    "de": "Warenkorb-Seite",
+    "en": "Cart page",
+    "es": "Página de carrito",
+    "fr": "Page du panier",
+    "it": "Pagina del carrello",
+    "ja": "カートページ",
+    "pt-BR": "Página do carrinho"
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "cart_notes_enable",
+      "label": {
+        "de": "Warenkorb-Notifikationen erlauben",
+        "en": "Enable cart notes",
+        "es": "Habilitar notas de carrito",
+        "fr": "Activer les notes de panier",
+        "it": "Abilita note carrello",
+        "ja": "カートメモを有効にする",
+        "pt-BR": "Ativar observações sobre o carrinho"
+      },
+      "default": false
+    },
+    {
+      "type": "html",
+      "id": "del_info",
+      "label": "Delivery info",
+      "default": "Delivery info text block, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
+    },
+    {
+      "type": "html",
+      "id": "duties_info",
+      "label": "Duties info",
+      "default": "Duties text block, Sed ut perspiciatis unde omnis iste natus error."
+    },
+    {
+      "type": "html",
+      "id": "shipping_info",
+      "label": "Shipping info",
+      "default": "Duties text block, Sed ut perspiciatis unde omnis iste natus error."
+    }
+  ]
+}
+{% endschema %}

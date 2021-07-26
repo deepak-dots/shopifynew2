@@ -1,0 +1,41 @@
+<form id="email_signup" class="contact-form" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+    <input type="hidden" name="g" value="Yrb9BG">
+    <input type="hidden" name="$fields" value="$consent">
+    <input type="hidden" name="$list_fields" value="$consent">
+    <div class="site-footer__newsletter">
+    <div class="klaviyo_field_group">
+      <input class="form-control" type="email" value="" name="email" id="k_id_email" placeholder="Please enter your email address" />
+    </div>
+    <div class="klaviyo_messages">
+      <div class="success_message" style="display:none;"></div>
+      <div class="error_message" style="display:none;"></div>
+    </div>
+    <div class="klaviyo_form_actions input-group__btn">
+      <button type="submit" class="klaviyo_submit_button button" id="Subscribe">Subscribe</button> 
+    </div>
+    </div>
+  </form>
+  <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+  
+{%comment%}
+<form class="contact-form" name="form" method="POST" target="_blank" action="https://forms.sign-up.to/28913/7067">
+  <label for="{{ formId }}-email" class="visually-hidden">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+  <div class="site-footer__newsletter{% if form.errors %} newsletter__input-group--error{% endif %}">
+    <input type="email"
+      name="email"
+      id="{{ formId }}-email"
+      class="form-control{% if form.errors %} input--error{% endif %}"
+      value="{% if customer %}{{ customer.email }}{% endif %}"
+      placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+      autocorrect="off"
+      autocapitalize="off"
+      {% if form.errors %} aria-invalid="true" aria-describedby="{{ formId }}-email-error"{% endif %}>
+    <span class="input-group__btn">
+      <button type="submit" class="button newsletter__submit" name="commit" id="Subscribe">
+        <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+      </button>
+    </span>
+  </div>
+</form>
+{%endcomment%}
+

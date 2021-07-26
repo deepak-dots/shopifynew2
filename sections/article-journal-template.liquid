@@ -1,0 +1,133 @@
+{%comment%}
+<div class="artical-detail">
+<div class="container">
+<div class="img-block"><img src="{{ "artical-full-large.jpg" | asset_url }}" alt="img"></div>
+<div class="text-block">
+<span class="dt">February 14, 2020</span>
+<span class="h1">LOREM IPSUM DOLOR SIT AMET</span>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+</div>
+<div class="img-block"><img src="{{ "artical-double-img.jpg" | asset_url }}" alt="img"></div>
+<div class="text-block">
+<p>Sed rutrum enim in massa ultrices posuere. Suspendisse quam nunc, pulvinar ut est eget, convallis egestas purus. Etiam posuere et nisl pretium dictum. Maecenas hendrerit nisl nec lorem rhoncus lobortis. Sed lobortis ac felis vitae malesuada. Quisque posuere pharetra sapien. Phasellus augue lorem, molestie sit amet interdum aliquam, tristique vel felis. Proin dui leo, vulputate ac sagittis sit amet, dignissim at mi. Phasellus ut nulla eget turpis pulvinar finibus in ac nunc. Maecenas dapibus at quam ac scelerisque.</p>
+<p>Curabitur gravida egestas sapien sed convallis. Phasellus viverra laoreet nunc sed tincidunt. Vestibulum at velit vel dui vehicula dictum vulputate sit amet dui. Ut fringilla egestas mauris. Cras a lectus pulvinar risus mattis luctus. Morbi at finibus nisi. Duis scelerisque leo non urna vehicula, et lobortis leo gravida. Nunc ultrices faucibus malesuada. In placerat, quam at vestibulum luctus, lorem ipsum rhoncus augue, ac efficitur dui erat a nisl. Quisque vitae tincidunt urna. Proin pulvinar turpis ac commodo tempus. Pellentesque at nisl varius, dictum nibh vel, congue massa. Suspendisse nec neque turpis.</p>
+</div>
+<div class="img-block portrait"><img src="{{ "artical-single-vertical-img.jpg" | asset_url }}" alt="img"></div>
+<div class="text-block">
+<p>Sed rutrum enim in massa ultrices posuere. Suspendisse quam nunc, pulvinar ut est eget, convallis egestas purus. Etiam posuere et nisl pretium dictum. Maecenas hendrerit nisl nec lorem rhoncus lobortis. Sed lobortis ac felis vitae malesuada. Quisque posuere pharetra sapien. Phasellus augue lorem, molestie sit amet interdum aliquam, tristique vel felis. Proin dui leo, vulputate ac sagittis sit amet, dignissim at mi. Phasellus ut nulla eget turpis pulvinar finibus in ac nunc. Maecenas dapibus at quam ac scelerisque.</p>
+</div>
+<div class="pagination-arrow">
+<a href="#" class="prev-btn">{% include 'back' %} Previous</a>
+<a href="#" class="next-btn">Next {% include 'next' %}</a>
+</div>
+</div>
+</div>
+{%endcomment%}
+
+{% comment %}
+  When a comment is submitted, the browser is redirected to a page that includes
+  the new comment id in its URL.
+  #comments is a required ID and is used as an anchor link by Shopify.
+{% endcomment %}
+
+{%- assign number_of_comments = article.comments_count -%}
+
+{% comment %}
+  If a comment was just submitted but requires moderation, we have an extra comment to count.
+{% endcomment %}
+{% if comment and comment.status != 'published' %}
+  {% assign number_of_comments = article.comments_count | plus: 1 %}
+{% endif %}
+<div class="artical-detail">
+	<div class="container">
+    {%comment%}
+		<div class="img-block">
+			{{ article | img_url: 'master' | img_tag: article.title }}
+		</div>
+    {%endcomment%}
+		<div class="text-block">
+			<span class="dt">{{ article.published_at | date: "%B %d,%Y" }}</span>
+			<span class="h1">{{article.title}}</span>
+		</div>
+		{{article.content | replace: '_small.', '_1200x.' }}
+		<div class="pagination-arrow">
+			<a href="{{ blog.previous_article }}" class="prev-btn">{% include 'back' %} Previous</a>
+			<a href="{{ blog.next_article }}" class="next-btn">Next {% include 'next' %}</a>
+		</div>
+	</div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Blocks",
+
+  "settings": [
+    {
+      "id": "text-box",
+      "type": "text",
+      "label": "Heading",
+      "default": "Title"
+    },
+    {
+      "id": "social_checkbox",
+      "type": "checkbox",
+      "label": "Display Social Media",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Add Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Admin Label",
+          "default" : "Article Name",
+          "info" : "For admin use only."
+        },
+        {
+          "id": "link",
+          "type": "url",
+          "label": "Blog Url"
+        },
+        {
+          "id": "linktext",
+          "type": "text",
+          "label": "Button text",
+          "default": "SHOP THE LOOK"
+        },
+        {
+          "id": "enquiriestext",
+          "type": "text",
+          "label": "Enquiry text",
+          "default": "For enquiries about the moss jumpsuit, please contact us."
+        },
+
+        {
+          "id": "action_url",
+          "type": "url",
+          "label": "Action Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Call to Action Blocks",
+      "category": "Blocks",
+      "blocks": [
+        {
+          "type": "select"
+        },
+        {
+          "type": "select"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

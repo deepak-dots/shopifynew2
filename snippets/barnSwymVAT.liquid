@@ -1,0 +1,53 @@
+<script>
+// -----------------------------------------------------------------
+  /*
+  Function: Add VAT to Swym prices
+  Author: The Barn 
+  Date: June 2018
+  */
+  window.addEventListener('DOMContentLoaded', function() {
+  
+        $(function(){
+          //only run loop on wishlist page/s
+          if(window.location.href.indexOf("wishlist") > -1) {
+              setInterval(function(){ changePrices() }, 1000);
+          }
+          //if product page add a loop trigger to the addWish button
+          if(window.location.href.indexOf("products") > -1) {
+              setTimeout(function(){ updateAddWish() }, 1000);
+          }
+
+          updateAddWish = function(){
+            addwish = $('.add-wish');
+            //if we found the button then add a trigger
+            if (addwish){
+              addwish.click(function() {
+                  setInterval(function(){ changePrices() }, 1000);
+              });
+            }else{
+              //or try again in 1 second
+              setTimeout(function(){ updateAddWish() }, 1000);
+            }
+          }
+
+          changePrices = function(){
+            $('.swym-price').each(function(index){
+              if(! $(this).hasClass('priceChanged')){
+                 $(this).addClass('priceChanged');
+                 myPrice = $(this)[0].innerText;
+                 myVal = Number(myPrice.replace(/[^0-9\.-]+/g,""));
+
+                 //add 20% VAT value to the price        
+                 plusTax = myVal * 1.2;
+                 $(this).html('£ ' + plusTax.toFixed(2) );
+              }
+
+            });
+          }
+        });
+      });
+</script>
+<style>
+  .swym-price{ visibility: hidden; }
+  .swym-price.priceChanged{ visibility: visible; }
+</style>

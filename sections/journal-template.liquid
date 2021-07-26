@@ -1,0 +1,184 @@
+{%comment%}
+<div class="blog-bnr">
+<img src="{{ "blog-bnr-img.jpg" | asset_url }}" alt="bnr">
+</div>
+<div class="journal-listing">
+<div class="container">
+<div class="row">
+<div class="col-sm-12 text-center">
+<h1>Welcome to our journal</h1>
+<div class="collection-description col-sm-12 col-md-8 col-lg-6 mx-auto rte">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+</div>
+</div>
+</div>
+<div class="list">
+<div class="row">
+<div class="col-12 col-sm-6 col-md-4">
+<div class="blog-card">
+<span class="blog-img"><img src="{{ "blog-listing-img1.jpg" | asset_url }}" alt="bnr"></span>
+<div class="blog-text">
+<span class="title">Lorem ipsum dolor sit amet</span>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<a href="#" class="read-more">Read more</a>
+</div>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-md-4">
+<div class="blog-card">
+<span class="blog-img"><img src="{{ "blog-listing-img2.jpg" | asset_url }}" alt="bnr"></span>
+<div class="blog-text">
+<span class="title">Lorem ipsum dolor sit amet</span>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<a href="#" class="read-more">Read more</a>
+</div>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-md-4">
+<div class="blog-card">
+<span class="blog-img"><img src="{{ "blog-listing-img3.jpg" | asset_url }}" alt="bnr"></span>
+<div class="blog-text">
+<span class="title">Lorem ipsum dolor sit amet</span>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<a href="#" class="read-more">Read more</a>
+</div>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-md-4">
+<div class="blog-card">
+<span class="blog-img"><img src="{{ "blog-listing-img4.jpg" | asset_url }}" alt="bnr"></span>
+<div class="blog-text">
+<span class="title">Lorem ipsum dolor sit amet</span>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<a href="#" class="read-more">Read more</a>
+</div>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-md-4">
+<div class="blog-card">
+<span class="blog-img"><img src="{{ "blog-listing-img5.jpg" | asset_url }}" alt="bnr"></span>
+<div class="blog-text">
+<span class="title">Lorem ipsum dolor sit amet</span>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<a href="#" class="read-more">Read more</a>
+</div>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-md-4">
+<div class="blog-card">
+<span class="blog-img"><img src="{{ "blog-listing-img6.jpg" | asset_url }}" alt="bnr"></span>
+<div class="blog-text">
+<span class="title">Lorem ipsum dolor sit amet</span>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<a href="#" class="read-more">Read more</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a href="#" class="btn btn-border more">SEE MORE</a>
+</div>
+</div>
+{%endcomment%}
+
+
+
+
+
+
+
+{% paginate blog.articles by 3 %}
+{% comment %}
+{% assign imgsize = '295x450' %}
+{% endcomment %}
+{% assign imgsize = '600x450' %}
+<div class="blog-bnr">
+ {%- if section.settings.image != blank -%}
+	<img src="{{ section.settings.image | img_url: 'master' }}" alt="bnr">
+ {%- endif -%}
+</div>
+<div class="journal-listing">
+<div class="container">
+<div class="row">
+<div class="col-sm-12 text-center">
+  {%- if section.settings.blog_title != blank -%}
+	<h1>{{section.settings.blog_title }}</h1>
+  {%- endif -%}
+  {%- if section.settings.description != blank -%}
+	<div class="collection-description col-sm-12 col-md-8 col-lg-6 mx-auto rte">
+		<p>{{ section.settings.description }}</p>
+	</div>
+  {%- endif -%}
+</div>
+</div>
+<div class="list">
+	<div class="row">
+	 {% for article in blog.articles %}
+		<div class="col-12 col-sm-6 col-md-4 ajax-blog">
+			<div class="blog-card">
+				<span class="blog-img">
+         <a href="{{ article.url }}">{{ article | img_url: imgsize, crop: 'center' | img_tag: article.title }}</a>
+       </span>
+				<div class="blog-text">
+					<span class="title">{{ article.title}}</span>
+					<p>{{ article.content | strip_html | truncatewords: 30 }}
+					</p>
+					<a href="{{ article.url }}" class="read-more">Read more</a>
+				</div>
+			</div>
+		</div>
+	 {% endfor %}	
+	<div id="product-list-foot"></div>
+	</div>
+</div>
+	{% if paginate.next %}
+          <div class="btn btn-border more"><a href="{{ paginate.next.url }}">See More</a></div>
+    {% endif %}
+</div>
+</div>
+
+
+
+
+{% endpaginate %}
+{% schema %}
+  {
+    "name": "Journal Blog",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Admin Label",
+        "info" : "For admin use only."
+      },
+      {
+        "type": "image_picker",
+         "id": "image",
+         "label": "Upload Image"
+      },
+      {
+        "type": "url",
+        "id": "image_url",
+        "label": "Image Link"
+      },
+      {
+        "type": "text",
+        "id": "blog_title",
+        "default": "New Season - Dresses",
+        "label": "Block Title"
+      },
+      {
+        "type": "url",
+        "id": "url",
+        "label": "Call to action"
+      },
+      {
+        "type": "html",
+        "id": "description",
+        "label": "Short Description",
+        "default": "Lorem ipsum dolor sit amet, ea eum eros oblique. Eam ex quod adipisci qualisque. Utinam impetus vix in, ius ancillae sadipscing et. No tale ludus scriptorem quo."
+      }
+     ]
+  }
+{% endschema %}
+

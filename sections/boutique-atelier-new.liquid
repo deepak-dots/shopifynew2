@@ -1,0 +1,221 @@
+{% for block in section.blocks %}
+  {% unless block.settings.block1_image_1 == blank %}
+    {% assign block1_image_1 = block.settings.block1_image_1 %}
+  {% endunless %}
+
+  {% if block.settings.block1_title != blank %}
+    {% assign block1_title = block.settings.block1_title %}
+  {% endif %}
+
+  {% if block.settings.block1_text_1 != blank %}
+    {% assign block1_text_1 = block.settings.block1_text_1 %}
+  {% endif %}
+
+  {% unless block.settings.block1_image_2 == blank %}
+      {% assign block1_image_2 = block.settings.block1_image_2 %}
+  {% endunless %}
+
+  {% if block.settings.block1_title_2 != blank %}
+     {% assign block1_title_2 =  block.settings.block1_title_2 %}
+  {% endif %}
+
+  {% if block.settings.block1_text_2 != blank %}
+    {% assign block1_text_2 = block.settings.block1_text_2 %}
+  {% endif %}
+
+  {% unless block.settings.block1_image_3 == blank %}
+    {% assign block1_image_3 = block.settings.block1_image_3 %}
+  {% endunless %}
+
+  {% if block.settings.block2_title != blank %}
+    {% assign block2_title = block.settings.block2_title %}
+  {% endif %}
+
+  {% if block.settings.block2_text != blank %}
+    {% assign block2_text = block.settings.block2_text %}
+  {% endif %}
+
+  {% unless block.settings.block2_image == blank %}
+     {% assign block2_image = block.settings.block2_image %}
+  {% endunless %}
+
+{% endfor %}
+
+<div class="store-page d-block clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12"> {% if section.settings.page_title != blank %}
+        <h3 class="h2">{{ section.settings.page_title | escape }}</h3>
+        {% endif %}
+        {% if section.settings.page_description != blank %}
+        <p>{{ section.settings.page_description | escape }}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="store-gallery d-block clearfix">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-7">
+          <!-- <div class="atelier-img"><img src="{{ 'Atelier-store.jpg' | asset_url }}" alt="Store"></div> -->
+          <div class="atelier-img"><img src="{{ block1_image_1 | img_url : '570x570' }}" alt="Store"></div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-5 d-flex flex-wrap">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 mt-md-4 col-lg-12 mt-lg-0 align-self-start">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 mb-4 align-self-center">
+                  <h3>{{block1_title}}</h3>
+                  <p>{{block1_text_1}}</p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6">
+                  <div class="atelier-img"> <img src="{{ block1_image_2 | img_url : '270x270'}}" alt="Store"> </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 mt-md-4 col-lg-12 mt-lg-0 align-self-end">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 mb-4 align-self-center">
+                  <h3>{{block1_title_2}}</h3>
+                  <p>{{block1_text_2}}</p>
+                 </div>
+                <div class="col-12 col-sm-12 col-md-6">
+                  <div class="atelier-img"><img src="{{ block1_image_3 | img_url : '270x270' }}" alt="Store"> </div>
+                  <!-- <div class="atelier-img"><img src="{{ 'Atelier-img2.jpg' | asset_url }}" alt="Store"></div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12 order-2 col-sm-12 order-sm-2 col-md-12 mt-md-4 order-md-2 col-lg-4 pl-lg-5 order-lg-1 align-self-center">
+          <h3>{{ block2_title }}</h3>
+          <p>{{ block2_text }}</p>
+           </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+          <div class="atelier-img"><img src="{{ block2_image | img_url : '789x533'}}" alt="Store"></div>
+           </div>
+      </div>
+      </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": {
+    "en": "BOUTIQUE CONTENT"
+  },
+  "class": "index-section",
+  "settings": [{
+      "type": "text",
+      "id": "page_title",
+      "label": {
+        "en": "Title"
+      },
+      "default": "The Atelier"
+    },
+    {
+      "type": "textarea",
+      "id": "page_description",
+      "label": {
+        "en": "Page Description"
+      },
+      "default": "The Atelier"
+    }
+  ],
+  "blocks": [{
+      "type": "text",
+      "name": {
+        "en": "Block Style 1"
+      },
+      "settings": [{
+          "type": "text",
+          "id": "block1_title",
+          "label": {
+            "en": "First Heading : Block 1"
+          },
+          "default": {
+            "en": "Optional Heading"
+          }
+        },
+        {
+          "type": "richtext",
+          "id": "block1_text_1",
+          "label": {
+            "en": "First Description : Block 1"
+          },
+          "default": {
+            "en": "<p> SUZANNAH works with several couture milliners and British shoe designers to create the perfect outfit from head to heel. </p>"
+          }
+        },
+        {
+          "type": "text",
+          "id": "block1_title_2",
+          "label": {
+            "en": "Second Heading"
+          },
+          "default": {
+            "en": "Optional Heading Left"
+          }
+        },
+        {
+          "type": "richtext",
+          "id": "block1_text_2",
+          "label": {
+            "en": "Second Description : Block 1"
+          },
+          "default": {
+            "en": " <p> SUZANNAH works with several couture milliners and British shoe designers to create the perfect outfit from head to heel. </p>"
+          }
+        },
+        {
+          "type": "image_picker",
+          "id": "block1_image_1",
+          "label": "Left Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "block1_image_2",
+          "label": "Rigt First Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "block1_image_3",
+          "label": "Right Second Image"
+        }
+      ]
+    },
+    {
+      "type": "textwithimage",
+      "name": {
+        "en": "Block Style 2"
+      },
+      "settings": [{
+          "type": "text",
+          "id": "block2_title",
+          "label": {
+            "en": "First Heading : Block 2"
+          },
+          "default": {
+            "en": "Optional Heading"
+          }
+        },
+        {
+          "type": "richtext",
+          "id": "block2_text",
+          "label": {
+            "en": "Description : Block 2"
+          },
+          "default": {
+            "en": "<p> SUZANNAH works with several couture milliners and British shoe designers to create the perfect outfit from head to heel. </p>"
+          }
+        },
+        {
+          "type": "image_picker",
+          "id": "block2_image",
+          "label": "Left Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,481 @@
+<style type="text/css">
+  label.classic-label{display: none !important;}
+  h3.title{text-align: center;}
+.globo-form-app .content + p {display: none;}
+</style>
+<div class="content-block d-block clearfix">
+  <div class="request-page">
+    <div class="row">
+      <div class="col-12">
+        {% for block in section.blocks %}
+        {% if block.type == 'image' %}
+        <div class="request-bnr-block">
+          <div class="row align-items-center">
+            <div class="col-12 order-2 d-none col-sm-12 d-sm-none order-sm-2 d-sm-flex col-md-5 order-md-1 d-md-flex {% if block.settings.flip %}flip-right{%endif%}">
+             <div class="img-block">
+             {% if block.settings.image != blank %}
+              <img src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.image }}">
+               {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+             </div>
+            </div>
+            <div class="col-12 order-1 col-sm-12 order-sm-1 col-md-7 order-md-2 {% if block.settings.flip %}flip-left{%endif%}">
+             <div class="text-block padding-left">
+                {% if block.settings.title != blank %}
+                  <h1>{{ block.settings.title }}</h1>
+                {% endif %}
+                <div class="img-block mobile">
+                {% if block.settings.image != blank %}
+                 <img src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.image }}">
+                  {% else %}
+                   {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                 {% endif %}
+                </div>
+                {% if block.settings.text != blank %}
+                  <p>{{ block.settings.text }}</p>
+                {% endif %}
+             </div>
+            </div>
+          </div>
+        </div>
+        {%endif%}
+        {%endfor%}
+        <div class="step-block">
+          <div class="row center-text">
+            <div class="col-12">
+              {% for block in section.blocks %}
+              {% if block.type == 'text' %}
+             <span class="sub-hd">{{ block.settings.heading | escape }}</span>
+             <div class="text-block">
+             {% if block.settings.title != blank %}
+              <h2 class="h1">{{ block.settings.title | escape }}</h2>
+              {% endif %}
+              {% if block.settings.text_content != blank %}
+              <p>{{ block.settings.text_content  }}</p>
+              {% endif %}
+             </div>
+             {%endif%}
+             {%endfor%}
+            </div>
+
+          </div>
+             {% for block in section.blocks %}
+              {% if block.type == 'step-2' %}
+          <div class="row align-items-center">
+            <div class="col-sm-12 col-md-5">
+             <div class="text-block">
+             {% if block.settings.title != blank %}
+               <h2 class="h1">{{ block.settings.title | escape }}</h2>
+               {% endif %}
+               {% if block.settings.text != blank %}
+               <p>{{ block.settings.text }}</p>
+               {% endif %}
+             </div>
+
+            </div>
+            <div class="col-sm-12 col-md-7">
+             <div class="img-block padding-left">
+               {% if block.settings.image != blank %}
+              <img src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.image }}">
+               {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+             </div>
+            </div>
+          </div>
+            {%endif%}
+             {%endfor%}
+          <div class="row align-items-center">
+           {% for block in section.blocks %}
+              {% if block.type == 'step-3' %}
+            <div class="col-12 order-3 col-sm-12 order-sm-3 col-md-5 order-md-1">
+             <div class="img-block">
+               {% if block.settings.image != blank %}
+              <img src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.image }}">
+               {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+             </div>
+            </div>
+            <div class="col-12 order-1 col-sm-12 order-sm-1 col-md-7 order-md-2">
+             <div class="text-block padding-left">
+             {% if block.settings.title != blank %}
+               <h2 class="h1">{{ block.settings.title | escape }}</h2>
+               {% endif %}
+               {% if block.settings.text != blank %}
+               <p>{{ block.settings.text }}</p>
+               {% endif %}
+             </div>
+            </div>
+            {%endif%}
+            {%endfor%}
+            <div class="col-12 order-2 col-sm-12 order-sm-2 col-md-8 order-md-3 col-lg-6 order-lg-3 m-auto">
+              <div class="size-table clearfix">
+              {% for block in section.blocks %}
+              {% if block.type == 'html' %}
+              {% if block.settings.code != blank %}
+                {{ block.settings.code }}
+              {% endif %}
+              {% endif %}
+              {%endfor%}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <h1 class="h4">{{ page.title }}</h1> -->
+        <div class="rte">
+          {{ page.content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": {
+    "de": "Personalisierter Content",
+    "en": "Page content",
+    "es": "Contenido personalizado",
+    "fr": "Contenu personnalisé",
+    "it": "Contenuto personalizzato",
+    "ja": "コンテンツをカスタムする",
+    "pt-BR": "Conteúdo personalizado"
+  },
+  "class": "request-form-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "de": "Titel",
+        "en": "Heading",
+        "es": "Título",
+        "fr": "En-tête",
+        "it": "Heading",
+        "ja": "見出し",
+        "pt-BR": "Título"
+      },
+      "default": {
+        "de": "Personalisierter Content",
+        "en": "Custom content",
+        "es": "Contenido personalizado",
+        "fr": "Contenu personnalisé",
+        "it": "Contenuto personalizzato",
+        "ja": "コンテンツをカスタムする",
+        "pt-BR": "Conteúdo personalizado"
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": {
+        "de": "Foto",
+        "en": "Image with text",
+        "es": "Imagen",
+        "fr": "Image",
+        "it": "Immagine",
+        "ja": "画像",
+        "pt-BR": "Imagem"
+      },
+      "settings": [
+         {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "de": "Titel",
+            "en": "Heading",
+            "es": "Título",
+            "fr": "En-tête",
+            "it": "Heading",
+            "ja": "見出し",
+            "pt-BR": "Título"
+          },
+          "default": {
+            "de": "Erzählen Sie von Ihrer Marke",
+            "en": "Talk about your brand",
+            "es": "Habla de tu marca",
+            "fr": "Parlez de votre marque",
+            "it": "Parla del tuo brand",
+            "ja": "あなたのブランドについて語る",
+            "pt-BR": "Fale sobre a sua marca"
+          }
+        },
+         {
+          "type": "html",
+          "id": "text",
+          "label": {
+            "de": "Text",
+            "en": "Text",
+            "es": "Texto",
+            "fr": "Texte",
+            "it": "Testo",
+            "ja": "テキスト",
+            "pt-BR": "Texto"
+          },
+          "default": {
+            "de": "<p>Nutzen Sie diesen Text, um Infos über Ihre Marke mitzuteilen. Beschreiben Sie ein Produkt, kündigen Sie etwas an oder heißen Sie Kunden willkommen.</p>",
+            "en": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "es": "<p>Usa este texto para compartir información sobre tu marca con tus clientes. Describe un producto, comparte anuncios o recibe clientes en tu tienda.</p>",
+            "fr": "<p>Utilisez ce texte pour partager des informations sur votre marque. Décrivez un produit, partagez des annonces, ou souhaitez la bienvenue à vos clients.</p>",
+            "it": "<p>Utilizza questo testo per condividere le informazioni sul tuo brand con i tuoi clienti. Descrivi un prodotto, condividi gli annunci o dai il benvenuto ai clienti nel tuo negozio.</p>",
+            "ja": "<p>このテキストを使用して、あなたのブランドに関する情報をお客様と共有します。商品を説明したり、告知の共有をしたり、あるいはあなたのストアのお客様を歓迎します。</p>",
+            "pt-BR": "<p>Use este texto para compartilhar informações sobre sua marca com seus clientes. Descreva um produto, compartilhe anúncios ou receba os clientes em sua loja.</p>"
+          }
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": {
+            "de": "Foto",
+            "en": "Image",
+            "es": "Imagen",
+            "fr": "Image",
+            "it": "Immagine",
+            "ja": "画像",
+            "pt-BR": "Imagem"
+          }
+        }
+      ]
+    },
+    {
+        "type": "step-2",
+        "name": "step 2",
+         "settings": [
+         {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "de": "Titel",
+            "en": "Heading",
+            "es": "Título",
+            "fr": "En-tête",
+            "it": "Heading",
+            "ja": "見出し",
+            "pt-BR": "Título"
+          },
+          "default": {
+            "de": "Erzählen Sie von Ihrer Marke",
+            "en": "Talk about your brand",
+            "es": "Habla de tu marca",
+            "fr": "Parlez de votre marque",
+            "it": "Parla del tuo brand",
+            "ja": "あなたのブランドについて語る",
+            "pt-BR": "Fale sobre a sua marca"
+          }
+        },
+         {
+          "type": "html",
+          "id": "text",
+          "label": {
+            "de": "Text",
+            "en": "Text",
+            "es": "Texto",
+            "fr": "Texte",
+            "it": "Testo",
+            "ja": "テキスト",
+            "pt-BR": "Texto"
+          },
+          "default": {
+            "de": "<p>Nutzen Sie diesen Text, um Infos über Ihre Marke mitzuteilen. Beschreiben Sie ein Produkt, kündigen Sie etwas an oder heißen Sie Kunden willkommen.</p>",
+            "en": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "es": "<p>Usa este texto para compartir información sobre tu marca con tus clientes. Describe un producto, comparte anuncios o recibe clientes en tu tienda.</p>",
+            "fr": "<p>Utilisez ce texte pour partager des informations sur votre marque. Décrivez un produit, partagez des annonces, ou souhaitez la bienvenue à vos clients.</p>",
+            "it": "<p>Utilizza questo testo per condividere le informazioni sul tuo brand con i tuoi clienti. Descrivi un prodotto, condividi gli annunci o dai il benvenuto ai clienti nel tuo negozio.</p>",
+            "ja": "<p>このテキストを使用して、あなたのブランドに関する情報をお客様と共有します。商品を説明したり、告知の共有をしたり、あるいはあなたのストアのお客様を歓迎します。</p>",
+            "pt-BR": "<p>Use este texto para compartilhar informações sobre sua marca com seus clientes. Descreva um produto, compartilhe anúncios ou receba os clientes em sua loja.</p>"
+          }
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": {
+            "de": "Foto",
+            "en": "Image",
+            "es": "Imagen",
+            "fr": "Image",
+            "it": "Immagine",
+            "ja": "画像",
+            "pt-BR": "Imagem"
+          }
+        }
+      ]
+      },
+    {
+        "type": "step-3",
+        "name": "step 3",
+         "settings": [
+         {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "de": "Titel",
+            "en": "Heading",
+            "es": "Título",
+            "fr": "En-tête",
+            "it": "Heading",
+            "ja": "見出し",
+            "pt-BR": "Título"
+          },
+          "default": {
+            "de": "Erzählen Sie von Ihrer Marke",
+            "en": "Talk about your brand",
+            "es": "Habla de tu marca",
+            "fr": "Parlez de votre marque",
+            "it": "Parla del tuo brand",
+            "ja": "あなたのブランドについて語る",
+            "pt-BR": "Fale sobre a sua marca"
+          }
+        },
+         {
+          "type": "html",
+          "id": "text",
+          "label": {
+            "de": "Text",
+            "en": "Text",
+            "es": "Texto",
+            "fr": "Texte",
+            "it": "Testo",
+            "ja": "テキスト",
+            "pt-BR": "Texto"
+          },
+          "default": {
+            "de": "<p>Nutzen Sie diesen Text, um Infos über Ihre Marke mitzuteilen. Beschreiben Sie ein Produkt, kündigen Sie etwas an oder heißen Sie Kunden willkommen.</p>",
+            "en": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "es": "<p>Usa este texto para compartir información sobre tu marca con tus clientes. Describe un producto, comparte anuncios o recibe clientes en tu tienda.</p>",
+            "fr": "<p>Utilisez ce texte pour partager des informations sur votre marque. Décrivez un produit, partagez des annonces, ou souhaitez la bienvenue à vos clients.</p>",
+            "it": "<p>Utilizza questo testo per condividere le informazioni sul tuo brand con i tuoi clienti. Descrivi un prodotto, condividi gli annunci o dai il benvenuto ai clienti nel tuo negozio.</p>",
+            "ja": "<p>このテキストを使用して、あなたのブランドに関する情報をお客様と共有します。商品を説明したり、告知の共有をしたり、あるいはあなたのストアのお客様を歓迎します。</p>",
+            "pt-BR": "<p>Use este texto para compartilhar informações sobre sua marca com seus clientes. Descreva um produto, compartilhe anúncios ou receba os clientes em sua loja.</p>"
+          }
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": {
+            "de": "Foto",
+            "en": "Image",
+            "es": "Imagen",
+            "fr": "Image",
+            "it": "Immagine",
+            "ja": "画像",
+            "pt-BR": "Imagem"
+          }
+        }
+      ]
+      },
+    {
+      "type": "text",
+      "name": {
+        "de": "step-1",
+        "en": "step-1",
+        "es": "Texto",
+        "fr": "Texte",
+        "it": "Testo",
+        "ja": "テキスト",
+        "pt-BR": "Texto"
+      },
+      "settings": [
+       {
+          "type": "text",
+          "id": "heading",
+          "label": {
+            "de": "Titel",
+            "en": "Heading",
+            "es": "Título",
+            "fr": "En-tête",
+            "it": "Heading",
+            "ja": "見出し",
+            "pt-BR": "Título"
+          },
+          "default": {
+            "de": "Erzählen Sie von Ihrer Marke",
+            "en": "Talk about your brand",
+            "es": "Habla de tu marca",
+            "fr": "Parlez de votre marque",
+            "it": "Parla del tuo brand",
+            "ja": "あなたのブランドについて語る",
+            "pt-BR": "Fale sobre a sua marca"
+          }
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "de": "Titel",
+            "en": "Title",
+            "es": "Título",
+            "fr": "En-tête",
+            "it": "Heading",
+            "ja": "見出し",
+            "pt-BR": "Título"
+          },
+          "default": {
+            "de": "Erzählen Sie von Ihrer Marke",
+            "en": "Talk about your brand",
+            "es": "Habla de tu marca",
+            "fr": "Parlez de votre marque",
+            "it": "Parla del tuo brand",
+            "ja": "あなたのブランドについて語る",
+            "pt-BR": "Fale sobre a sua marca"
+          }
+        },
+        {
+          "type": "html",
+          "id": "text_content",
+          "label": {
+            "de": "Text",
+            "en": "Text",
+            "es": "Texto",
+            "fr": "Texte",
+            "it": "Testo",
+            "ja": "テキスト",
+            "pt-BR": "Texto"
+          },
+          "default": {
+            "de": "<p>Nutzen Sie diesen Text, um Infos über Ihre Marke mitzuteilen. Beschreiben Sie ein Produkt, kündigen Sie etwas an oder heißen Sie Kunden willkommen.</p>",
+            "en": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "es": "<p>Usa este texto para compartir información sobre tu marca con tus clientes. Describe un producto, comparte anuncios o recibe clientes en tu tienda.</p>",
+            "fr": "<p>Utilisez ce texte pour partager des informations sur votre marque. Décrivez un produit, partagez des annonces, ou souhaitez la bienvenue à vos clients.</p>",
+            "it": "<p>Utilizza questo testo per condividere le informazioni sul tuo brand con i tuoi clienti. Descrivi un prodotto, condividi gli annunci o dai il benvenuto ai clienti nel tuo negozio.</p>",
+            "ja": "<p>このテキストを使用して、あなたのブランドに関する情報をお客様と共有します。商品を説明したり、告知の共有をしたり、あるいはあなたのストアのお客様を歓迎します。</p>",
+            "pt-BR": "<p>Use este texto para compartilhar informações sobre sua marca com seus clientes. Descreva um produto, compartilhe anúncios ou receba os clientes em sua loja.</p>"
+          }
+        }
+      ]
+    },
+
+    {
+      "type": "html",
+      "name": {
+        "de": "Personalisierte HTML",
+        "en": "Size Guide HTML",
+        "es": "HTML personalizado",
+        "fr": "HTML personnalisé",
+        "it": "HTML personalizzato",
+        "ja": "HTMLをカスタムする",
+        "pt-BR": "HTML personalizado"
+      },
+      "settings": [
+        {
+          "type": "html",
+          "id": "code",
+          "label": {
+            "de": "HTML",
+            "en": "HTML",
+            "es": "HTML",
+            "fr": "HTML",
+            "it": "HTML",
+            "ja": "HTML",
+            "pt-BR": "HTML"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

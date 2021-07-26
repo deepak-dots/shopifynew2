@@ -1,0 +1,119 @@
+{%- assign filter_headers = '' -%}
+{%- for tag in collection.all_tags -%}
+  {%- assign tagVal = tag -%}
+  {%- if tagVal contains '_' -%}
+    {%- assign tagArray = tagVal | downcase | split: '_' -%}
+    {%- unless filter_headers contains tagArray.first -%}
+      {%- assign  filter_headers = filter_headers | append: tagArray.first | append: '#'  -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign strlen = filter_headers | size | minus: 1 -%}
+{%- assign filter_headers = filter_headers | slice: 0, strlen -%}
+{%- assign headers = filter_headers | downcase | split: '#' -%}
+{%- if settings.size-opt -%}
+  {% assign size_options = settings.size-opt | split: ',' %}
+{%- endif -%}
+{%- for header in headers -%}
+{% assign h = header | downcase %}
+  {%- if h == 'garment'-%}
+    <div class="filter-option filter-select">
+      <!-- <h2>{{ header | camelcase}}</h2>
+      <ul class="filters-list">  -->
+       <select class="filters-list pretty" name="{{header | downcase | handleize }}">
+       <option value="{{header | downcase | handleize }}">{{ header | camelcase}} Type</option>
+        {%- for tag in collection.all_tags -%}
+          {%- assign tag_chk = tag | downcase -%}
+          {%- if tag_chk contains header -%}
+            {%- assign tagArray = tag_chk | split: '_' -%}
+            {%- if current_tags contains tag_chk -%}
+             <!--  <li class="check-custom">{{ tag_chk | remove: header | remove: '_' | append: '&nbsp;x' | link_to_remove_tag: tag_chk }}</li> -->
+             <option value="{{tag | downcase}}">{{ tag_chk | remove: header | remove: '_' | append: '&nbsp;x'}}</option>
+            {%- else -%}
+              <!-- <li class="check-custom {{tag | downcase}}">{{ tag_chk | remove: header | remove: '_' | link_to_add_tag: tag_chk }}</li> -->
+              <option value="{{tag | downcase}}">{{ tag_chk | remove: header | remove: '_'}}</option>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+        </select>
+     <!--  </ul> -->
+    </div>
+  {%- endif -%}
+{%- endfor -%}
+
+{%- for header in headers -%}
+  {% assign h = header | downcase %}
+  {%- if h == 'colour' -%}
+    <div class="filter-option filter-select">
+      <!-- <h2>{{ header | camelcase}}</h2>
+      <ul class="filters-list">  -->
+       <select class="filters-list pretty" name="{{header | downcase | handleize }}">
+       <option value="{{header | downcase | handleize }}">{{ header | camelcase}}</option>
+        {%- for tag in collection.all_tags -%}
+          {%- assign tag_chk = tag | downcase -%}
+          {%- if tag_chk contains header -%}
+            {%- assign tagArray = tag_chk | split: '_' -%}
+            {%- if current_tags contains tag_chk -%}
+             <!--  <li class="check-custom">{{ tag_chk | remove: header | remove: '_' | append: '&nbsp;x' | link_to_remove_tag: tag_chk }}</li> -->
+             <option value="{{tag | downcase}}">{{ tag_chk | remove: header | remove: '_' | append: '&nbsp;x'}}</option>
+            {%- else -%}
+              <!-- <li class="check-custom {{tag | downcase}}">{{ tag_chk | remove: header | remove: '_' | link_to_add_tag: tag_chk }}</li> -->
+              <option value="{{tag | downcase}}">{{ tag_chk | remove: header | remove: '_'}}</option>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+        </select>
+     <!--  </ul> -->
+    </div>
+  {%- endif -%}
+{%- endfor -%}
+
+
+  {%- if settings.size-opt and collection.handle contains 'sale' -%}
+   {% assign headerSize = 'size' | downcase %}
+    <div class="filter-option filter-select">
+       <select class="filters-list pretty" name="{{headerSize | downcase | handleize }}">
+       <option value="{{headerSize | downcase | handleize }}">{{ headerSize | camelcase}}</option>
+        {%- for tag in size_options -%}
+          {%- assign tag_chk = tag | downcase -%}
+          {%- if tag_chk contains headerSize -%}
+            {%- assign tagArray = tag_chk | split: '_' -%}
+            {%- if current_tags contains tag_chk -%}
+             <option value="{{tag | downcase}}">{{ tag_chk | remove: headerSize | remove: '_' | append: '&nbsp;x'}}</option>
+            {%- else -%}
+              <!-- <li class="check-custom {{tag | downcase}}">{{ tag_chk | remove: headerSize | remove: '_' | link_to_add_tag: tag_chk }}</li> -->
+              <option value="{{tag | downcase}}">{{ tag_chk | remove_first: headerSize | remove: '_' | replace: '-', ' ' }}</option>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+        </select>
+    </div>
+  {%- endif -%}
+
+   <a href="#" class="reset clear">Reset Filters</a>
+<!--    <div class="filter-select fright">
+    <select class="form-control" name="Color">
+    <option value="Sort">Sort</option>
+    <option value="Black">Recommended</option>
+    <option value="lowprice">High/Low Price</option>
+    <option value="lowprice">Low/High Price</option>
+    <option value="newest">Newest</option>
+    </select>
+   </div> -->
+  <div class="filter-select fright">
+    {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+    <div class="filters-toolbar__input-wrapper select-group">
+      <select name="SortBy" id="SortBy" class="filters-toolbar__input hidden pretty" aria-describedby="a11y-refresh-page-message">
+        <option value="Sort">Sort</option>
+        <option value="manual"{% if sort_by == "manual" %} selected="selected"{% endif %}>{{ 'collections.sorting.featured' | t }}</option>
+        <!-- <<option value="best-selling"{% if sort_by == "best-selling" %} selected="selected"{% endif %}>{{ 'collections.sorting.best_selling' | t }}</option>
+        <option value="title-ascending"{% if sort_by == "title-ascending"  %}selected="selected"{% endif %}>{{ 'collections.sorting.az' | t }}</option>
+        <option value="title-descending"{% if sort_by == "title-descending" %} selected="selected"{% endif %}>{{ 'collections.sorting.za' | t }}</option> -->
+        <option value="price-descending"{% if sort_by == "price-descending" %} selected="selected"{% endif %}>{{ 'collections.sorting.price_descending' | t }}</option>
+        <option value="price-ascending"{% if sort_by == "price-ascending" %} selected="selected"{% endif %}>{{ 'collections.sorting.price_ascending' | t }}</option>
+        <option value="created-descending"{% if sort_by == "created-descending" %} selected="selected"{% endif %}>{{ 'collections.sorting.date_descending' | t }}</option>
+        <!-- <option value="created-ascending"{% if sort_by == "created-ascending" %} selected="selected"{% endif %}>{{ 'collections.sorting.date_ascending' | t }}</option> -->
+      </select>
+    </div>
+    <input id="DefaultSortBy" type="hidden" value="{{ collection.default_sort_by }}">
+  </div>

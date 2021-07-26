@@ -1,0 +1,151 @@
+<div class="content-page clearfix">
+<div class="container">
+<h1 class="h1">{{ page.title }}</h1>
+<div class="img-container clearfix">
+  {%- if section.settings.vip_image != blank -%}
+    <img src="{{ section.settings.vip_image | img_url : 'master' }}" alt="Store">
+  {%- else -%}
+    <img src="{{ 'dummy-img.jpg' | asset_url }}" alt="img">
+  {%- endif -%}
+</div>
+<div class="rte">
+  {{ page.content }}
+</div>
+<div class="vip-form clearfix">
+  
+  <!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup" style="display:none;">
+<form action="https://suzannah.us10.list-manage.com/subscribe/post?u=cbfb30d8c99dae1712a1bcce2&amp;id=3e222b6bcd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cbfb30d8c99dae1712a1bcce2_3e222b6bcd" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+  <style>
+  
+  </style>
+  
+  <!-- HIDDEN --><div style="display:block;">
+  <form class="formBuilder vip-registration-form" name="form" method="POST" target="_blank" action="https://forms.sign-up.to/28913/7064">
+    <div class="formBuilderBucket clearfix">
+      {% comment %}
+      <div class="formBuilderGroup groupHTML ">
+        <h1>JOIN THE VIP LIST</h1>
+      </div>
+      <div class="formBuilderGroup groupHTML ">
+        <p>Please enter your details to join the Suzannah VIP mailing list.<br>
+          <br>
+          When appropriate, we will send you update emails informing you of forthcoming promotions, special discounts and new collections.<br>
+          <br>
+          All information is kept confidential.
+        </p>
+      </div>
+
+      
+      <div class="formBuilderGroup groupCoreProfile ">
+        <label class="formBuilderLabel" for="title">Title <span class="formBuilderRequired">*</span></label>
+
+        <div class="formBuilderInputContainer">
+          <input type="text" name="title" class="form-control" id="title" placeholder="" value="">
+        </div>
+      </div>
+      <div class="formBuilderGroup groupCoreProfile ">
+        <label class="formBuilderLabel" for="first_name">First name <span class="formBuilderRequired">*</span></label>
+
+        <div class="formBuilderInputContainer">
+          <input type="text" name="first_name" class="form-control" id="first_name" placeholder="" value="">
+        </div>
+      </div>
+      <div class="formBuilderGroup groupCoreProfile ">
+        <label class="formBuilderLabel" for="surname">Surname <span class="formBuilderRequired">*</span></label>
+
+        <div class="formBuilderInputContainer">
+          <input type="text" name="surname" class="form-control" id="surname" placeholder="" value="">
+        </div>
+      </div>
+      <div class="formBuilderGroup groupCoreProfile ">
+        <label class="formBuilderLabel" for="mobile">Mobile <span class="formBuilderRequired">*</span></label>
+
+        <div class="formBuilderInputContainer">
+          <input type="text" name="mobile" class="form-control" id="mobile" placeholder="" value="">
+        </div>
+      </div>
+      <div class="formBuilderGroup groupCoreProfile ">
+        <label class="formBuilderLabel" for="postcode">Postcode / zip <span class="formBuilderRequired">*</span></label>
+
+        <div class="formBuilderInputContainer">
+          <input type="text" name="postcode" class="form-control" id="postcode" placeholder="" value="">
+        </div>
+      </div>
+      {% endcomment %}
+      <div class="formBuilderGroup groupCoreProfile " compulsory="">
+        <!-- <label class="formBuilderLabel" for="email">Email <span class="formBuilderRequired">*</span></label> -->
+
+        <div class="formBuilderInputContainer">
+          <input type="email" name="email" class="form-control" id="email" placeholder="Email Address" value="">
+        </div>
+      </div>
+      {% comment %}
+      <div class="formBuilderGroup groupSubscriberProfile ">
+        <label class="formBuilderLabel" for="profile_1298">Dress size <span class="formBuilderRequired">*</span></label>
+
+        <div class="formBuilderSelectContainer">
+          <select name="profile_1298" class="pretty form-control" id="profile_1298">
+            <option value="none">Please select...</option>
+            <option value="8">8</option>
+            <option value="10">10</option>
+            <option value="12">12</option>
+            <option value="14">14</option>
+            <option value="16">16</option>
+          </select>
+        </div>
+      </div>
+      <div class="formBuilderGroup groupSubscriberProfile ">
+        <label class="formBuilderLabel" for="profile_1299">Source <span class="formBuilderRequired">*</span></label>
+
+        <div class="formBuilderSelectContainer">
+          <select name="profile_1299" class="pretty form-control" id="profile_1299">
+            <option value="none">Please select...</option>
+            <option value="Press">Press</option>
+            <option value="Customer">Customer</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        {% endcomment %}
+      </div>
+      <div class="formBuilderGroup groupSubmit ">
+        <button name="subscribe" class="btn btn-border" type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+  </div><!-- HIDDEN -->
+</div>
+</div>
+</div>
+{% schema %}
+{
+  "name": {
+    "en": "VIP Registration"
+  },
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "vip_image",
+      "label": {
+        "en": "Display Image"
+      }
+    }
+  ]
+}
+{% endschema %}

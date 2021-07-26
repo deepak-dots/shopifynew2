@@ -1,0 +1,153 @@
+<div class="modal fade size-guide-popup" id="myModal" role="dialog">
+  <div class="modal-dialog size-guide-popup-data">
+    <div class="modal-content">
+      <div class="popup-header">
+        <h2 class="size-title">Size Guide</h2>
+        <a href="" class="close-size-popup" data-dismiss="modal">{% include 'close' %}</a>
+      </div>
+      <div class="popup-content">
+        
+          
+          {%comment%}
+          <div class="col-12 col-sm-6 col-md-6">
+            {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
+            <div class="product-popup-img">
+              <img src="{{ featured_image | img_url: 'large' }}" alt="{{  featured_image  }}">
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-6">
+            <div class="product-popup-content">
+              {{ description }}
+            </div>
+          </div>
+
+          <div class="size-guide-description">
+             <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#tab1">MEASUREMENTS</a></li>
+               <li><a data-toggle="tab" href="#tab2">SIZING</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="tab1" class="tab-pane fade in active show">
+                 <div class="page-title-section">
+                <p><span style="font-weight: 400;">When choosing your size from our collection, please refer to the measurement chart to determine your closest size.</span></p>
+                <p><span style="font-weight: 400;">Please measure around your body with a tape measure at the key points where the diagram shows. The measure tape should not be pulled tight.</span></p>
+                <p><span style="font-weight: 400;">If you are unsure or are varying sizes, please email our boutique </span><a href="mailto:enquiries@suzannah.com"><span style="font-weight: 400;">enquiries@suzannah.com</span></a><span style="font-weight: 400;">; we can help advise styles which would suit your shape.</span></p>
+                <p><span style="font-weight: 400;">We can also make smaller and larger sizes to those shown and garments which are made to measure. </span></p>
+                <p><span style="font-weight: 400;">This would be part of our Atelier service.</span></p>
+              </div>
+              <div class="size-detail-block clearfix">
+                <div class="size-detail clearfix"><img src="https://cdn.shopify.com/s/files/1/0068/0873/1721/files/femail-img.jpg?9972130305008675493" alt="Size" />
+                  <div class="sd-content">
+                    <p><b>Bust</b> - Measure your fullest point.</p>
+                    <p><b>Waist</b> - Measure your narrowest point.</p>
+                    <p><b>Lower Hip</b> - Measure your widest point approx. 20cm down from your waist.</p>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div id="tab2" class="tab-pane fade">
+                 <div class="size-table clearfix">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>UK</th>
+                      <th>US</th>
+                      <th>EU</th>
+                      <th colspan="2">Bust</th>
+                      <th colspan="2">Waist</th>
+                      <th colspan="2">Hip</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>06</td>
+                      <td>02</td>
+                      <td>34</td>
+                      <td>83.5cm</td>
+                      <td>33 inches</td>
+                      <td>63.5cm</td>
+                      <td>25 inches</td>
+                      <td>89.5cm</td>
+                      <td>35 inches</td>
+                    </tr>
+                    <tr>
+                      <td>08</td>
+                      <td>04</td>
+                      <td>36</td>
+                      <td>86cm</td>
+                      <td>34 inches</td>
+                      <td>66cm</td>
+                      <td>26 inches</td>
+                      <td>92cm</td>
+                      <td>36 inches</td>
+                    </tr>
+                    <tr>
+                      <td>10</td>
+                      <td>06</td>
+                      <td>38</td>
+                      <td>91cm</td>
+                      <td>36 inches</td>
+                      <td>71cm</td>
+                      <td>28 inches</td>
+                      <td>97cm</td>
+                      <td>38 inches</td>
+                    </tr>
+                    <tr>
+                      <td>12</td>
+                      <td>08</td>
+                      <td>40</td>
+                      <td>96cm</td>
+                      <td>38 inches</td>
+                      <td>76cm</td>
+                      <td>30 inches</td>
+                      <td>102cm</td>
+                      <td>40 inches</td>
+                    </tr>
+                    <tr>
+                      <td>14</td>
+                      <td>10</td>
+                      <td>42</td>
+                      <td>101cm</td>
+                      <td>40 inches</td>
+                      <td>81cm</td>
+                      <td>32 inches</td>
+                      <td>107cm</td>
+                      <td>42 inches</td>
+                    </tr>
+                    <tr>
+                      <td>16</td>
+                      <td>12</td>
+                      <td>44</td>
+                      <td>106cm</td>
+                      <td>42 inches</td>
+                      <td>86cm</td>
+                      <td>34 inches</td>
+                      <td>112cm</td>
+                      <td>44 inches</td>
+                    </tr>
+                    <tr>
+                      <td>18</td>
+                      <td>14</td>
+                      <td>46</td>
+                      <td>111cm</td>
+                      <td>44 inches</td>
+                      <td>91cm</td>
+                      <td>36 inches</td>
+                      <td>117cm</td>
+                      <td>46 inches</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              </div>
+            </div>
+          </div>
+          {%endcomment%}
+
+          {{ pages.size-guide.content }}
+
+        
+      </div>
+    </div>
+  </div>
+</div>

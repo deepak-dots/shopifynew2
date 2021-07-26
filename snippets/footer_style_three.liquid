@@ -1,0 +1,56 @@
+<div class="footer-top clearfix">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-3">
+          <!-- <p><b>The Atelier</b> 20 New Quebec Street,<br/> London W1H 7SB.</p> -->
+          {%- if address_block_1 != blank -%}
+            <b>{{ title_block_1 }}</b> {{ address_block_1 }}      
+          {%- endif -%}
+        </div>
+        <div class="col-12 col-sm-12 col-md-8 ml-auto">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-4">
+              <!-- <p><b>Suzannah Boutique</b> 3 New Quebec Street,<br/> London, W1H 7RE.</p> -->
+              {%- if address_block_2 != blank -%}            
+                <b>{{ title_block_2 }}</b> {{ address_block_2 }}
+              {%- endif -%}
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+              {%- if address_block_3 != blank -%}
+              <p><a href="tel:{{address_block_3}}" aria-describedby="a11y-external-message">{{address_block_3}}</a></p>
+              {%- endif -%}
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+              {%- if social_icons -%}
+              <ul class="foot-social list--inline site-footer__social-icons social-icons site-footer__icon-list social-follow popup-social">
+                <li class="d-none">Follow</li>
+                {%- if social_pinterest_link != blank -%}            
+                  <li>
+                      <a class="social-icons__link" href="{{ social_pinterest_link | escape }}" aria-describedby="a11y-external-message">
+                        {%- include 'pinterest' -%}
+                        <span class="icon__fallback-text">Pinterest</span>
+                      </a>
+                  </li>
+                {%- endif -%}            
+                {%- if social_facebook_link != blank -%}
+                  <li>
+                      <a class="social-icons__link" href="{{ social_facebook_link | escape }}" aria-describedby="a11y-external-message">
+                        {%- include 'facebook' -%}
+                        <span class="icon__fallback-text">Facebook</span>
+                      </a>
+                  </li>
+                {%- endif -%}
+                {%- if social_instagram_link != blank -%}
+                    <li>
+                      <a class="social-icons__link" href="{{ social_instagram_link | escape }}" aria-describedby="a11y-external-message">
+                        {%- include 'instagram' -%}
+                        <span class="icon__fallback-text">Instagram</span>
+                      </a>
+                    </li>
+                {%- endif -%}
+              </ul>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

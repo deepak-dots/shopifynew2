@@ -1,0 +1,23 @@
+{% form 'customer', id: formId, novalidate: 'novalidate' %}
+  
+  <label for="{{ formId }}-email" class="visually-hidden">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+  <div class="site-footer__newsletter{% if form.errors %} newsletter__input-group--error{% endif %}">
+    <input type="hidden" name="contact[tags]" value="newsletter">
+    <input type="email"
+      name="contact[email]"
+      id="{{ formId }}-email"
+      class="form-control{% if form.errors %} input--error{% endif %}"
+      value="{% if customer %}{{ customer.email }}{% endif %}"
+      placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+      autocorrect="off"
+      autocapitalize="off"
+      {% if form.errors %} aria-invalid="true" aria-describedby="{{ formId }}-email-error"{% endif %}>
+    <span class="input-group__btn">
+      <button type="submit" class="button newsletter__submit" name="commit" id="Subscribe">
+        <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+      </button>
+    </span>
+    <span id="{{ formId }}-email-error" class="input-error-message">{% include 'icon-error' %} {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+  </div>
+  {% include 'form-status', formId %}
+{% endform %}

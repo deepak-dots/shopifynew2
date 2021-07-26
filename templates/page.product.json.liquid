@@ -1,0 +1,8 @@
+{% layout none %}
+[{%- paginate collections.all.products by 1000 -%}
+{%- for product in collections.all.products -%}
+{
+"title": {{ product.title |downcase | json }},
+"handle": {{ product.handle | json }}
+}{%- unless forloop.last -%},{%- endunless -%}
+{%- endfor -%}]{%- endpaginate -%}

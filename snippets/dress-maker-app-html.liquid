@@ -1,0 +1,314 @@
+{%- assign tax = 1 -%}
+{%- if settings.tax-multiplier != blank -%}
+  {%- assign tax = settings.tax-multiplier | times: 1 -%}
+{%- endif -%}
+<!--pagemakerapp-->
+<div class="page-maker-block">
+  <!--pageheader-->
+  <div class="page-head-block">
+    <a href="#" class="back-link cba-button-back clickable"> {%- include 'back' -%} Exit</a>
+    <span class="app-head-logo"> {%- include 'suz-logo-01' -%} </span>
+  </div>
+  <!--pageheader-->
+  <!--pagemainblock-->
+  <div class="main-block">
+    <!--beadscancas-->
+    <div class="dress-block">
+      <div class="dress-canvas" id="dresscanvas">
+        {%- comment -%}
+            <img src="{{ 'dress1.png' | asset_url }}" alt="img">
+            <img src="https://barnagencyapps.com/suz/parts/skirt_midi.png" alt="img">
+        {%- endcomment -%}
+        
+
+      </div>
+      <div class="dress-footer">
+        <div class="sz-canvas-switch-btn">
+          <ul class="mobile-dot-nav">
+            <li><a href="#" class="mobile-view-switch-btn sz-canvas-view-front-mobile active"></a></li>
+            <li><a href="#" class="mobile-view-switch-btn sz-canvas-view-back-mobile"></a></li>
+          </ul>
+
+          <a href="#" class="refresh-link desktop-view-switch-btn sz-canvas-view-back"><img src="{{ 'refresh.svg' | asset_url }}" alt="img"> View back</a>
+          <a href="#" class="refresh-link desktop-view-switch-btn sz-canvas-view-front hide"><img src="{{ 'refresh.svg' | asset_url }}" alt="img"> View front</a>
+        </div>
+
+        <p>We have tried to be as accurate as possible with our illustrations in this graphic tool. However, we are unable to show the exact print placement your final dress will have. For the exact colours and scale of the print, please refer to the swatch we send upon receipt of your order.</p>
+      </div>
+    </div>
+    <!--dresscanvas-->
+    <!--dressdetail-->
+    <div class="dress-detail">
+      <!--title-->
+      <div class="choose-title">
+        <span class="title desktop sz-title">Choose Your <span>Neckline</span></span>
+        <span class="title mobile">Tea Dress</span>
+        <span class="price sz-select-variant-price">&#163; 995 - &#163; 1350</span>
+      </div>
+      <!--title-->
+      <!--dresspart-->
+      <div class="dress-part">
+        <ul class="short-name-label">
+          <li data-steps="neckline" data-previous=""><a href="#" class="sz-button-step">Neckline: <span>-</span></a></li>
+          <li data-steps="sleeve" data-previous="neckline"><a href="#" class="sz-button-step">Sleeves: <span>-</span></a></li>
+          <li data-steps="length" data-previous="sleeve"><a href="#" class="sz-button-step">Dress Length: <span>-</span></a></li>
+          <li data-steps="print" data-previous="length"><a href="#" class="sz-button-step">Print: <span>-</span></a></li>
+          <li data-steps="size" data-previous="print"><a href="#" class="sz-button-step">Size: <span>-</span></a></li>
+        </ul>
+        <span class="help-video"><a href="javascript:void(0)" class="sz-button-help help-link video-pop">
+          <strong>{% include 'question-solid' %}</strong>Help</a>
+        </span>
+      </div>
+      <!--dresspart-->
+      <!--dresspartview-->
+      <div class="dress-part-view sz-display">
+        <!--Mobile steps-->
+        <ul class="dress-item mobile-steps sz-dress-mobile-steps">
+          <li class="current" data-steps="neckline"><a href="#" class="sz-button-mobile-step">Neckline</a></li>
+          <li data-steps="sleeve"><a href="#" class="sz-button-mobile-step">Sleeves</a></li>
+          <li data-steps="length"><a href="#" class="sz-button-mobile-step">Dress Length</a></li>
+          <li data-steps="print"><a href="#" class="sz-button-mobile-step">Print</a></li>
+          <li data-steps="size"><a href="#" class="sz-button-mobile-step">Size</a></li>
+        </ul>
+        <ul class="dress-item desktop-steps sz-dress-steps-breadcrumb">
+          <li class="current" data-steps="neckline" data-previous=""><a href="#" class="sz-button-step">Neckline</a></li>
+          <li data-steps="sleeve" data-previous="neckline"><a href="#" class="sz-button-step">Sleeves</a></li>
+          <li data-steps="length" data-previous="sleeve"><a href="#" class="sz-button-step">Dress Length</a></li>
+          <li data-steps="print" data-previous="length"><a href="#" class="sz-button-step">Print</a></li>
+          <li data-steps="size" data-previous="print"><a href="#" class="sz-button-step">Size</a></li>
+        </ul>
+        <div class="help-mobile">
+          <span class="help-video"><a href="javascript:void(0)" class="sz-button-help help-link video-pop">
+          <strong>{% include 'question-solid' %}</strong>Help</a>
+        </span>
+        </div>
+        <!--necktype-->
+        <div class="product-type">
+          <span class="panel-neckline">
+            <ul class="neckline">
+              <li class="option-button" data-type="neckline" data-id="N01-ROUNDED_NECK_WITH_KEYHOLE" data-short-name="Rounded neck">
+                <span><img src="{{ 'neckline-img1.png' | asset_url }}" alt="img"></span>
+                <p>Rounded neck with keyhole</p>
+              </li>
+              <li class="option-button" data-type="neckline" data-id="N02-V_NECK" data-short-name="v-neck">
+                <span><img src="{{ 'neckline-img2.png' | asset_url }}" alt="img"></span>
+                <p>V-neck</p>
+              </li>
+            </ul>
+          </span>
+          <span class="panel-sleeve">
+            <ul class="sleeve">
+              <li class="option-button" data-type="sleeve" data-id="N01-CLASSIC_SLEEVES" data-short-name="classic">
+                <span><img src="{{ 'sleeves1.png' | asset_url }}" alt="img"></span>
+                <p>Classic sleeves</p>
+              </li>
+              <li class="option-button" data-type="sleeve" data-id="N02-LENGTH_SLEEVES_WIH_GATHERED_DETAIL" data-short-name="gathered">
+                <span><img src="{{ 'sleeves2.png' | asset_url }}" alt="img"></span>
+                <p>3/4 Length sleeves with gathered detail</p>
+              </li>
+              <li class="option-button" data-type="sleeve" data-id="N03-LONG_SLEEVES_WIH_CUFF" data-short-name="Long">
+                <span><img src="{{ 'sleeves3.png' | asset_url }}" alt="img"></span>
+                <p>Long sleeves with cuff</p>
+              </li>
+            </ul>
+          </span>
+          <span class="panel-length">
+            <ul class="length">
+              <li class="option-button" data-type="length" data-id="standard length" data-short-name="Standard">
+                <span><img src="{{ 'dress-length1.png' | asset_url }}" alt="img"></span>
+                <p>Standard length 109cm</p>
+                <span class="price">£995</span>
+              </li>
+              <li class="option-button" data-type="length" data-id="midi length" data-short-name="Midi">
+                <span><img src="{{ 'dress-length2.png' | asset_url }}" alt="img"></span>
+                <p>Midi length 131cm</p>
+                <span class="price">£1150</span>
+              </li>
+              <li class="option-button" data-type="length" data-id="maxi length" data-short-name="Maxi">
+                <span><img src="{{ 'skirt_maxi.png' | asset_url }}" alt="img"></span>
+                <p>Maxi length 149cm</p>
+                <span class="price">£1350</span>
+              </li>
+            </ul>
+          </span>
+          <span class="panel-print">
+            <a href="#_" class="double-tab-link"><img src="{{ 'zoom-in.svg' | asset_url }}" alt="img"> Double tap the swatches to view print detail</a>
+            <ul class="print">
+            {%- comment -%}
+              <li class="option-button" data-type="print" data-id="N01-PRINT_FIRST" data-short-name="First">
+                <span><img src="{{ 'print-img1.png' | asset_url }}" alt="img"></span>
+                <p>Product Name 01 on two lines</p>
+              </li>
+              <li class="option-button" data-type="print" data-id="N02-PRINT_SECOND" data-short-name="Second">
+                <span><img src="{{ 'print-img2.png' | asset_url }}" alt="img"></span>
+                <p>Product Name 02 on two lines</p>
+              </li>
+              <li class="option-button" data-type="print" data-id="N03-PRINT_THIRD" data-short-name="Third">
+                <span><img src="{{ 'print-img3.png' | asset_url }}" alt="img"></span>
+                <p>Product Name 03 on two lines</p>
+              </li>
+              <li class="option-button" data-type="print" data-id="N04-PRINT_FOURTH" data-short-name="Fourth">
+                <span><img src="{{ 'print-img1.png' | asset_url }}" alt="img"></span>
+                <p>Product Name 04 on two lines</p>
+              </li>
+              <li class="option-button" data-type="print" data-id="N05-PRINT_FIFTH" data-short-name="Fifth">
+                <span><img src="{{ 'print-img2.png' | asset_url }}" alt="img"></span>
+                <p>Product Name 05 on two lines</p>
+              </li>
+              <li class="option-button" data-type="print" data-id="N06-PRINT_SIX" data-short-name="Six">
+                <span><img src="{{ 'print-img3.png' | asset_url }}" alt="img"></span>
+                <p>Product Name 06 on two lines</p>
+              </li>
+              <li class="option-button" data-type="print" data-id="N07-PRINT_SEVEN" data-short-name="Seven">
+                <span><img src="{{ 'print-img1.png' | asset_url }}" alt="img"></span>
+                <p>Product Name 07 on two lines</p>
+              </li>
+              <li class="option-button" data-type="print" data-id="N08-PRINT_EIGHT" data-short-name="Eight">
+                <span><img src="{{ 'print-img2.png' | asset_url }}" alt="img"></span>
+                <p>Product Name 08 on two lines</p>
+              </li>
+              <li class="option-button" data-type="print" data-id="N09-PRINT_NINE" data-short-name="Nine">
+                <span><img src="{{ 'print-img3.png' | asset_url }}" alt="img"></span>
+                <p>Product Name 09 on two lines</p>
+              </li>
+              <li class="option-button" data-type="print" data-id="N10-PRINT_TEN" data-short-name="Ten">
+                <span><img src="{{ 'print-img1.png' | asset_url }}" alt="img"></span>
+                <p>Product Name 10 on two lines</p>
+              </li>
+            {%- endcomment -%}
+            </ul>
+            <a href="#_" class="see-more-btn sz-button-more" id="loadMore">See more</a>
+            <a href="#_" class="see-more-btn sz-button-less hide" id="showLess">See less</a>
+
+          </span>
+          <span class="panel-size">
+            <ul class="size">
+              <li class="option-button" data-type="size" data-id="N01-UK8" data-short-name="UK8">
+                <span class="size-circle">Uk8</span>
+              </li>
+              <li class="option-button" data-type="size" data-id="N02-UK10" data-short-name="UK10">
+                <span class="size-circle">Uk10</span>
+              </li>
+              <li class="option-button" data-type="size" data-id="N03-UK12" data-short-name="UK12">
+                <span class="size-circle">Uk12</span>
+              </li>
+              <li class="option-button" data-type="size" data-id="N01-UK14" data-short-name="UK14">
+                <span class="size-circle">Uk14</span>
+              </li>
+              <li class="option-button" data-type="size" data-id="N02-UK16" data-short-name="UK16">
+                <span class="size-circle">Uk16</span>
+              </li>
+            </ul>
+            <p>If you are unsure of which size to select please email us at <a href="#">enquiries@suzannah.com</a> and we can send you one of our stock dresses to try before we start making your bespoke dress.</p>
+          </span>
+        </div>
+        <!--necktype-->
+      </div>
+      <!--dresspartview-->
+
+      <div class="bottom-btn-group">
+        <a href="#" data-step-back="" class="step-back-btn sz-button-step-back disable hide">{%- include 'back' -%} Back</a>
+        <a href="#_" class="sz-button-zoom btn-custom disable"><img src="{{ 'zoom-in.svg' | asset_url }}" alt="img"> Zoom print</a>
+        <span class="sz-print-stock-error out-stock-error hide"></span>
+        <a href="#" class="apply-btn disable sz-button-continue"><span class="sz-continue-button-text">APPLY & CONTINUE</span> {%- include 'back' -%}</a>
+      </div>
+
+      <div class="mobile-step-btn">
+        <a href="#" class="btn-custom prev sz-button-mobile-previous"><img src="{{ 'back.png' | asset_url }}" alt="img"> <span>SIZE</span></a>
+        <a href="#" class="btn-custom next sz-button-mobile-next"><span>SLEEVE</span> <img src="{{ 'next.png' | asset_url }}" alt="img"></a>
+      </div>
+      <!--footbtn-->
+      <div class="detail-foot-btn">
+        <ul>
+          <li><a href="#" class="sz-button-info">Product Information</a></li>
+          <li><a href="#" class="sz-button-size">Size Guide</a></li>
+          {%comment%}<li><a href="#" class="sz-button-help help-link">Help</a></li>{%endcomment%}
+        </ul>
+        <span class="sz-steps-finish-error error-msg"></span>
+        <a href="#" class="btn-custom sz-button-finish disable">Finish</a>
+      </div>
+      <!--footbtn-->
+      <!--leavescreen-->
+      <div class="sz-panel-tab panel-exit exit-panel">
+        <div class="exit-msg">
+          <h2>Do you really want to leave?</h2>
+          <p>We will save your design to the browser</p>
+        </div>
+        <div class="exit-buttons">
+          <a href="#" class="sz-button-exit-cancel">No</a>
+          <a href="#" class="sz-button-exit-confirm">Yes</a>
+        </div>
+      </div>
+      <!--leavescreen-->
+      <!--productinfo-->
+      <div class="sz-panel-tab panel-product-info product-info-panel">
+        <a href="#" class="clos-popup sz-panel-button-close"><img src="{{ 'close.svg' | asset_url }}" alt="img"></a>
+        {%- include 'dress-maker-app-productinfo-html' -%}
+      </div>
+      <!--productinfo-->
+      <!--sizeguide-->
+      <div class="sz-panel-tab panel-size-guide size-guide-panel">
+        <a href="#" class="clos-popup sz-panel-button-close"><img src="{{ 'close.svg' | asset_url }}" alt="img"></a>
+        {%- include 'dress-maker-app-sizeguide-html' -%}
+      </div>
+      <!--sizeguide-->
+      <!--readydesign-->
+      <div class="sz-panel-tab panel-complete ready-design-panel">
+        <div class="ready-info">
+          <h2>YOUR CUSTOM TEA DRESS DESIGN IS READY!</h2>
+          <div class="dress-part sz-steps-all-selected-option">
+            <ul class="short-name-label">
+              <li data-steps="neckline">Neckline: <span>-</span></li>
+              <li data-steps="sleeve">Sleeves: <span>-</span></li>
+              <li data-steps="length">Dress Length: <span>-</span></li>
+              <li data-steps="print">Print: <span>-</span></li>
+              <li data-steps="size">Size: <span>-</span></li>
+            </ul>
+          </div>
+          <a href="#" class="btn-custom sz-button-terms"><span>£1350</span> - ADD TO CART</a>
+          <a href="#" class="cancel-btn sz-button-add-cart-cancel">REDESIGN YOUR DRESS</a>
+          <span class="copy-text"><a href="#", class="sz-button-share-link"><img src="{{ 'copy-text-icon.jpg' | asset_url }}" alt="img">Copy your link to share with a friend</a>
+          <span class="js-copied-text">Copied</span>
+          </span>
+        </div>
+      </div>
+      <!--readydesign-->
+      <!--zoom-->
+      <div class="sz-panel-tab panel-zoom zoom-panel">
+        <a href="#" class="clos-popup sz-panel-button-close"><img src="{{ 'close.svg' | asset_url }}" alt="img"></a>
+        {%- include 'dress-maker-app-zoom-html' -%}
+      </div>
+      <!--zoom-->
+    </div>
+    <!--dressdetail-->
+  </div>
+  <!--pagemainblock-->
+  <!--helppopup-->
+  <div class="app-popup panel-help help">
+    <a href="#" class="clos-popup sz-button-close"><img src="{{ 'close.svg' | asset_url }}" alt="img"></a>
+    {%- include 'dress-maker-app-help-html' -%}
+  </div>
+  <!--helppopup-->
+  <!--terms-->
+  <div class="sz-panel-tab panel-terms app-popup terms">
+    {%- include 'dress-maker-app-terms-html' -%}
+  </div>
+  <!--terms-->
+</div>
+<!--pagemakerapp-->
+
+<div class="video-help-popup" style="display: none;">
+  <div class="video-help-info">
+      <span class="help-video pause"><a href="javascript:void(0)" onclick="pauseVid()" id="pause"  class="vide-pop"><img src="{{ 'close.svg' | asset_url }}" alt="img"></a></span>
+      <div class="video-item">
+        <video id="myVideo" controls="false" loop="" muted="" data-desktop="{{section.settings.desktop_video}}" data-mobile="{{section.settings.mobile_video}}">
+        </video>
+        <div class="play-pause-action">
+          <span class="play-icon-section"><a href="javascript:void(0)" onclick="playVid()" id="play"  class="vide-pop play-icon">{% include 'Play' %}</a></span>
+          <span class="pause-icon-section"><a href="javascript:void(0)" onclick="pauseVid()" id="pause"  class="vide-pop pause-icon">{% include 'Pause' %}</a></span>
+        </div>
+      </div>
+  </div>
+   
+</div>
+

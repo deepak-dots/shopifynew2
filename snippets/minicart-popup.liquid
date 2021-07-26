@@ -1,0 +1,48 @@
+{%- assign tax = 1 -%}
+{%- if settings.tax-multiplier != blank -%}
+  {%- assign tax = settings.tax-multiplier | times: 1 -%}
+{%- endif -%}
+<div class="mini-cart-slide" data-cart-view="data-cart-view">
+  <h4>Shopping Bag</h4>
+  <a href="#" class="close">{%- include 'close' -%}</a>
+  <div class="mini-cart-block blank-cart-1 clearfix"  rv-show="cart.item_count | lt 1">
+    <p class="no-item">{{ 'cart.general.no_item' | t }}</p>
+    <a href="/" class="btn btn-border">{{ 'cart.general.no_items_btn' | t }}</a>
+  </div>
+  <div class="mini-cart-block add-product clearfix" rv-show="cart.item_count | gt 0">
+    <p rv-show="cart.item_count | gt 0">You have <span rv-text="cart.item_count | pluralize ' item' | prepend cart.item_count "></span> in your shopping bag.</p>
+    <div class="scroll-block">
+      <div class="cart-product-list d-block clearfix" rv-each-item="cart.items">
+        <div class="cpl-row d-block clearfix">
+          <div class="cart-product-img">
+            <a rv-href="item.url" class="product-image-111">
+              <img rv-src="item.image | productImageSize '330x330@2x' " rv-alt="item.title | escape" />
+            </a>
+          </div>
+          <div class="product-desc sz-product-desc-info" rv-data-id="item.id" rv-data-quantity="item.quantity">
+            <h4><a rv-href="item.url" rv-text="item.product_title"></a></h4>
+          <ul>
+              <li rv-each-property="item.propertyArray < properties" rv-class="property.name" rv-data-id="property.name" rv-data-name="property.value" rv-data-quantity="item.quantity">
+                  <font rv-text="property.name"></font>: <font rv-text="property.value"></font>
+              </li>
+          </ul> 
+
+          <div class="price d-block" rv-if="item.print | isEmpty" rv-html="item.price | times {{tax}} | money"></div>
+            <ul>
+              <li rv-each-opt="item.variant_options" rv-hide="opt | includes 'Default'">
+                <span class="size d-block" rv-text="opt"></span>
+              </li>
+            </ul>
+
+            <a href="#" class="remove remove-link d-block sz-remove-cartitem" rv-if="item.print | isEmpty" rv-data-cart-remove="index | plus 1">Delete item</a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mini-cart-bottom" rv-show="cart.item_count | gt 0" >
+      <div class="total">Total<span rv-html="cart.total_price | times {{tax}} | money"></span></div>
+      <a href="/cart/" class="btn btn-border">Proceed To Checkout</a>
+    </div>
+  </div>
+</div>

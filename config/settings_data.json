@@ -1,0 +1,1009 @@
+{
+  "current": {
+    "color_text": "#3d4246",
+    "color_body_text": "#3d4246",
+    "color_sale_text": "#ea3231",
+    "color_sale_links": "#ea3231",
+    "color_button": "#ffffff",
+    "color_button_text": "#ffffff",
+    "color_small_button_text_border": "#3d4246",
+    "color_text_field_text": "#000",
+    "color_text_field_border": "#e8e8e8",
+    "color_text_field": "#fff",
+    "color_image_overlay_text": "#ffffff",
+    "color_image_overlay": "#3d4246",
+    "image_overlay_opacity": 40,
+    "color_borders": "#e8e9eb",
+    "color_body_bg": "#fff",
+    "type_header_font": "geometric_415_n4",
+    "type_header_base_size": 26,
+    "type_base_font": "geometric_415_n4",
+    "type_base_size": 16,
+    "type_bold_product_titles": false,
+    "share_image": "shopify:\/\/shop_images\/suzannah_social_81da8372-072e-483f-96a8-d4c9e61b4c4c.png",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "https:\/\/www.facebook.com\/suzannahlondon",
+    "social_pinterest_link": "https:\/\/www.pinterest.co.uk\/suzannahlondon\/",
+    "social_instagram_link": "https:\/\/www.instagram.com\/suzannahlondon\/",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "favicon": "shopify:\/\/shop_images\/suzannah_favicon.png",
+    "popup--enabled": false,
+    "popup--show-image--enabled": true,
+    "popup_image": "shopify:\/\/shop_images\/Desktop_-_adelyn_ivory.jpg",
+    "popup--image-url": "",
+    "mailing_list_form_action": "https:\/\/forms.sign-up.to\/28913\/7067",
+    "popup--newsletter--enabled": true,
+    "popup--social--enabled": true,
+    "popup--seconds": "5",
+    "popup--days": "14",
+    "show_multiple_currencies": true,
+    "currency_format": "money_format",
+    "supported_currencies": "GBP EUR USD",
+    "default_currency": "GBP",
+    "tax-multiplier": "1",
+    "size-opt": "size_UK-Size-6,size_UK-Size-8,size_UK-Size-10,size_UK-Size-12,size_UK-Size-14,size_UK-Size-16,size_UK-Size-18",
+    "is_sale_global": false,
+    "site_telephone": "+44 (0)207 258 0782",
+    "site_mobile": "+44 7496 835006",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/suzannah_logo_checkout.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "rgba(0,0,0,0)",
+    "checkout_heading_font": "Roboto",
+    "checkout_body_font": "Roboto",
+    "checkout_accent_color": "#a4a4a4",
+    "checkout_button_color": "#ffffff",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "header": {
+        "type": "header",
+        "blocks": {
+          "1585141465891": {
+            "type": "navimagebox",
+            "settings": {
+              "title": "Suzannah London",
+              "nav_image": "shopify:\/\/shop_images\/6b3bfa0a-01a1-4f40-bfd1-2438a436063c.jpg",
+              "divider_status": false
+            }
+          }
+        },
+        "block_order": [
+          "1585141465891"
+        ],
+        "settings": {
+          "header_style": "style_1",
+          "main_linklist": "main-menu",
+          "message": true,
+          "home_page_only": false,
+          "message_text": "FREE WORLDWIDE SHIPPING ON ALL ORDERS OVER £150",
+          "message_link": "shopify:\/\/pages\/ordering-online",
+          "color_bg": "#dcdcdc",
+          "color_text": "#000000"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "link_list": {
+            "type": "link_list",
+            "settings": {
+              "menu": "footer-nav-block"
+            }
+          },
+          "link_list-1": {
+            "type": "link_list",
+            "settings": {
+              "menu": "footer-nav-block-2"
+            }
+          },
+          "1541080143056": {
+            "type": "link_list",
+            "settings": {
+              "menu": "footer-nav-block-3"
+            }
+          },
+          "1544002606987": {
+            "type": "mobile_footer",
+            "settings": {
+              "menu_title": "Information",
+              "menu_mobile": "information"
+            }
+          },
+          "1544002621222": {
+            "type": "mobile_footer",
+            "settings": {
+              "menu_title": "Customer Service",
+              "menu_mobile": "mobile-footer-customer-care"
+            }
+          }
+        },
+        "block_order": [
+          "link_list",
+          "link_list-1",
+          "1541080143056",
+          "1544002606987",
+          "1544002621222"
+        ],
+        "settings": {
+          "title_block_1": "About Suzannah London",
+          "address_block_1": "<p>Suzannah London is a luxury womenswear brand designed by British designer Suzannah Crabb which specialises in making unique premium cloth into modern silhouettes reflective of vintage couture classics. Investment pieces designed to be treasured as future heirlooms.<\/p>",
+          "title_block_2": "Suzannah Boutique",
+          "address_block_2": "<p>3 New Quebec Street, London, W1H 7RE.<\/p>",
+          "title_block_3": "The Atelier",
+          "address_block_3": "<p>20 New Quebec Street, London W1H 7RZ.<\/p>",
+          "address_block_4": "+44 7496 835006",
+          "show_payment_icons": true,
+          "color_footer_bg": "#f5f5f5",
+          "color_footer_text": "#3d4246",
+          "text": "<p>We love to write an email newsletter. We update you bi-weekly about news from the collection and also have occasional promotions and events to share with you..x<\/p>",
+          "contact_form_type": "sign_up_to",
+          "contact_form_action": "https:\/\/forms.sign-up.to\/28913\/7067"
+        }
+      },
+      "1540994180115": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Couture_July.jpg",
+          "layout": "left",
+          "title": "Browse The Couture Collection",
+          "hide_cta": false,
+          "button_label": "View Now",
+          "button_link": "https:\/\/www.suzannah.com\/collections\/atelier",
+          "cta_over_img": true
+        }
+      },
+      "1540994293490": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Shirt_dress_July.jpg",
+          "layout": "right",
+          "title": "Shop Shirt Dresses",
+          "hide_cta": false,
+          "button_label": "Shop Now",
+          "button_link": "shopify:\/\/collections\/shirt-dresses",
+          "cta_over_img": false
+        }
+      },
+      "1540995080189": {
+        "type": "feature-block-3",
+        "disabled": true,
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Mirabell.jpg",
+          "title": "Visit the Boutique",
+          "hide_cta": false,
+          "button_label": "Browse",
+          "button_link": "https:\/\/www.suzannah.com\/pages\/boutique"
+        }
+      },
+      "1541148188402": {
+        "type": "slideshow",
+        "blocks": {
+          "1577112097381": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Simple_coat_and_rainbow.jpg",
+              "mobi_image": "shopify:\/\/shop_images\/Simple_Coat_Cosmetic_Blush_LOW.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": "Explore Formal Wear",
+              "button_link": "shopify:\/\/collections\/classics"
+            }
+          },
+          "1571076935544": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Epp_and_Rebecca_2.jpg",
+              "mobi_image": "shopify:\/\/shop_images\/Rebecca_Collar_Ditsy_Floral_Model_2_LOW.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": "Explore Our Sustainable Collection",
+              "button_link": "shopify:\/\/collections\/sustainable-ethical-responsible"
+            }
+          },
+          "1578589925610": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Fontaine_and_Anemone.jpg",
+              "mobi_image": "shopify:\/\/shop_images\/Anemone.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": "Explore All Clothing",
+              "button_link": "shopify:\/\/collections\/ready-to-wear"
+            }
+          },
+          "4df72cfb-a722-4a4a-a047-337f89e1154a": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Rainbow_and_grecian.jpg",
+              "mobi_image": "shopify:\/\/shop_images\/Paige_Van_Gough_Green_Model_Crop_LOW.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": "Explore Formal Wear",
+              "button_link": "shopify:\/\/collections\/classics"
+            }
+          },
+          "1578587018131": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Daphne_and_Palm.jpg",
+              "mobi_image": "shopify:\/\/shop_images\/Daphne_Ditsy_Floral_Jersey_Model_Crop_LOW.jpg",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": "Explore All Clothing",
+              "button_link": "shopify:\/\/collections\/ready-to-wear"
+            }
+          }
+        },
+        "block_order": [
+          "1577112097381",
+          "1571076935544",
+          "1578589925610",
+          "4df72cfb-a722-4a4a-a047-337f89e1154a",
+          "1578587018131"
+        ],
+        "settings": {
+          "slideshow_height": "adapt",
+          "text_size": "medium",
+          "text_alignment": "center bottom",
+          "show_overlay": false,
+          "autorotate": true,
+          "autorotate_speed": 5
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 4,
+          "rows": 8,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_zoom": true,
+          "enable_payment_button": false,
+          "show_share_buttons": true,
+          "size_guide": "shopify:\/\/pages\/size-guide",
+          "size_guide_txt": "Size Guide",
+          "return_txt": "Try it on at home and return for free.",
+          "return_txt_cta": "More info",
+          "return_txt_url": "shopify:\/\/pages\/returns-policy",
+          "block_label_1": "Product Details",
+          "block_label_2": "Size & Fit",
+          "block_label_2a": "Product Composition",
+          "block_label_3": "Delivery Details",
+          "block_3_details": "<p>All items are delivered using DHL or a similar carrier.&nbsp;<\/p>\n<p>We will personally email you with details of this and an estimated delivery date of your product\/s when we confirm your order.<\/p>\n<p>Your tracking details will be emailed to you once the package is en route.<\/p>\n<p><\/p>\n<p><\/p>",
+          "show_lifestyle": false,
+          "lifestyle_image": "shopify:\/\/shop_images\/colorful-gift-bag.jpg",
+          "lifestyle_cta_txt": "Lifestyle Image Block Section",
+          "lifestyle_cta_url": "shopify:\/\/collections\/bridal-dress"
+        }
+      },
+      "product-couture-template": {
+        "type": "product-couture-template",
+        "settings": {
+          "show_share_buttons": false,
+          "custom_txt": "Price is indicative based on fabric, detail and tailoring.",
+          "size_guide": "shopify:\/\/pages\/size-guide",
+          "size_guide_txt": "Size Guide",
+          "enquiry_email": "enquiries@suzannah.com",
+          "enquiry_subject": "Enquiry for Suzannah",
+          "include_product_title": true,
+          "contact_no": "+44 (0)7496 835006",
+          "return_txt": "",
+          "return_txt_cta": "",
+          "block_label_1": "Product Details",
+          "block_label_2": "Size & Fit",
+          "block_label_2a": "Product Composition",
+          "block_label_3": "Delivery & Returns",
+          "block_3_details": "<p>Atelier items are made and collected in store.<\/p>",
+          "show_lifestyle": false,
+          "lifestyle_image": "shopify:\/\/shop_images\/colorful-gift-bag.jpg",
+          "lifestyle_cta_txt": "Lifestyle Image Block Section"
+        }
+      },
+      "boutique-atelier": {
+        "type": "boutique-atelier",
+        "blocks": {
+          "1545730596185": {
+            "type": "textblock",
+            "settings": {
+              "text_block": "<p>The Atelier is located opposite the SUZANNAH boutique at no 20 New Quebec Street London. The Atelier houses the SUZANNAH couture showroom , design studio &amp; ancillary workshop<\/p>"
+            }
+          },
+          "1545734189578": {
+            "type": "singleimage",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/the-atelier5.jpg"
+            }
+          },
+          "1545730655473": {
+            "type": "textblock",
+            "settings": {
+              "text_block": "<p>Appointments at the Atelier are for couture and made-to measure commissions.<\/p><p>SUZANNAH works with several couture milliners and British shoe designers to create the perfect outfit from head to heel.<\/p><p>The majority of the garments from the SUZANNAH ready-to-wear collection can be made-to- measure. Please email us to enquire about a couture consultation or made to measure servicing.<\/p>"
+            }
+          },
+          "1543838491952": {
+            "type": "textwithimage",
+            "settings": {
+              "block2_image_1": "shopify:\/\/shop_images\/the-atelier4.jpeg",
+              "block2_image_2": "shopify:\/\/shop_images\/the-atelier1.jpeg"
+            }
+          },
+          "1545894130156": {
+            "type": "singleimage",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/the-atelier5.jpeg"
+            }
+          },
+          "1545894146889": {
+            "type": "textwithimage",
+            "settings": {
+              "block2_image_1": "shopify:\/\/shop_images\/the-atelier3.jpeg",
+              "block2_image_2": "shopify:\/\/shop_images\/the-atelier2.jpeg"
+            }
+          }
+        },
+        "block_order": [
+          "1545730596185",
+          "1545734189578",
+          "1545730655473",
+          "1543838491952",
+          "1545894130156",
+          "1545894146889"
+        ],
+        "settings": {
+          "page_title": "The Atelier"
+        }
+      },
+      "boutique": {
+        "type": "boutique",
+        "blocks": {
+          "1543906089891": {
+            "type": "text",
+            "settings": {
+              "block_description": "<p>The Suzannah boutique is situated at 3 New Quebec Street  London W1 7RE, which is a short walk from Marble Arch . The boutique sells the Suzannah Ready-To-Wear collections, alongside coordinating millinery , shoes and bags from the best in British design. Our telephone number is +44 (0)207 258 0782<\/p><p>Our opening hours are :<\/p><p>Monday 10.30-6pm<\/p><p>Tuesday 10.30-6pm<\/p><p>Wednesday 10.30-6pm<\/p><p>Thursday 10.30-6pm<\/p><p>Friday 10.30-6pm<\/p><p>Saturday 10.00-5pm<\/p><p><\/p><p><strong>Christmas Opening Hours:<\/strong><\/p><p>Monday 23rd Dec: 10.30 - 6pm<\/p><p>Tuesday 24th Dec: 10.30 - 2pm<\/p><p>Wednesday 25th Dec: CLOSED<\/p><p>Thursday 26th Dec: CLOSED<\/p><p>Friday 27th Dec: 10.30-6pm<\/p><p>Saturday 28th Dec: 10 - 5pm<\/p><p>Sunday 29th Dec: CLOSED<\/p><p>Monday 30th Dec: 10.30 - 6pm<\/p><p>Tuesday 31st Dec: 10.30 - 2pm<\/p><p>Wednesday 1st Jan: CLOSED<\/p><p>Thursday 2nd Jan: 10.30 - 6pm<\/p><p><\/p><p>Thereafter, we are open as usual<\/p><p><\/p><p>Please note that we are closed on Easter Monday 22nd April 2019 <\/p><p><\/p><p>The boutique is welcoming, calm and elegant and is staffed by highly skilled professionals who have a wealth of knowledge about styling and cut. There is also an in-house tailoring team.<\/p><p>We hold stock of sizes 8-16 and size 18s of our best selling classic pieces. We recommend that you book an appointment in advance especially in the summer months. We provide one complimentary consultation per customer per event.<\/p><p><\/p><p>We produce two fashion collections per year, and also run a classic occasionwear collection which runs through the seasons. Our products can be commissioned in custom colour ways and have variations if appropriate to the style.<\/p><p><\/p><p>The pieces are beautifully made In London or Italy and are designed to be treasured as future heirlooms. Each piece exemplifies the exquisite combination of premium Italian cloth with immaculate cut and workmanship.<\/p><p>Most of our collection is made from Italian cloth of which the majority are exclusive cloths which we have designed from scratch; woven, printed and dyed to our own exacting standards.<\/p><p><\/p><p>We recommend that you book an appointment at the boutique to ensure the most out of your Suzannah experience.  You can book via email through <a href=\"mailto:enquiries@suzannah.com\">enquiries@suzannah.com<\/a> . Tell us your most preferred silhouettes and we can endeavour to prepare these for your visit.<\/p><p><\/p><p>We can fully style you from head to heel in the most appropriate and flattering outfit for your event if that is what is required. We always start with the dress, ensuring we help advise on the most flattering and appropriate for your event, and then assist with choosing complementing millinery and shoes which can be bought from our boutique or commissioned in bespoke colourways from our preferred partners.<\/p><p>It is an advantage to come prepared for your appointment  in good foundation garments. Great fitting underwear, shapewear and hosiery really makes a difference.<\/p>",
+              "store_address": "<p>Visit our London Boutique:<br\/>Suzannah, 3 New Quebec Street, London, W1H 7RE<\/p><p><\/p><p>Weekdays: 10:30am - 6pm <\/p><p>Saturday: 10am - 5pm<\/p><p><\/p>",
+              "store_opposite_address": "<p><\/p><p>The Atelier is situated opposite the boutique and houses our Atelier collection and workshop:<br\/>The Atelier, 20 New Quebec Street, London , W1H 7RZ<\/p>",
+              "google_map": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d2482.8969262559303!2d-0.16025068422975008!3d51.515106979636364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761accac53ff91%3A0x637faee0479d55c!2sSuzannah!5e0!3m2!1sen!2sin!4v1543908162708\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen=\"\"><\/iframe>",
+              "banner_image": "shopify:\/\/shop_images\/6b3bfa0a-01a1-4f40-bfd1-2438a436063c.jpg",
+              "cta_label": "Book A Consultation",
+              "consultation_link": "mailto:enquiries@suzannah.com?subject=Book a consultation"
+            }
+          }
+        },
+        "block_order": [
+          "1543906089891"
+        ],
+        "settings": {
+          "page_title": "Boutique"
+        }
+      },
+      "page-template": {
+        "type": "page-template",
+        "settings": {
+          "side_menu": "side-menu"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_notes_enable": false,
+          "del_info": "Free UK and worldwide shipping on orders over £150.\n\n\n We will email you on receipt of order to confirm and check the expected lead- time &amp; date of delivery is suitable for you. Once en-route we will send you the tracking information.",
+          "duties_info": "International duties and taxes calculated at checkout, so price may change, although UK VAT rate of 20% is first deducted on all orders outside the UK. Prepay is optional, though recommended to guarantee landed cost for you, and avoid paying taxes\/duties on arrival, as otherwise these must be paid before the courier will release your parcel at destination.\n We have no control over these charges and cannot predict what they may be. Customs policies do vary widely from country to country.",
+          "shipping_info": "If you aren't available when your parcel is delivered, the delivery driver will leave a calling card with instructions on how to pick it up."
+        }
+      },
+      "contact-us": {
+        "type": "contact-us",
+        "settings": {
+          "side_menu": "side-menu",
+          "title": "Contact Us",
+          "row_description": "<p>We will be opening on 12th April and are running By Appointment only. Please email us at<\/p><p><a href=\"mailto:enquiries@suzannah.com?subject=Enquiry\" title=\"mailto:enquiries@suzannah.com?subject=Enquiry\">enquiries@suzannah.com<\/a>.<\/p><p>Our team are available to be contacted by telephone during boutique opening hours on<\/p><p> +44 (0) 207 258 0782 or WhatsApp +44 7496 835006<\/p><p>We are able to advise you on all our styles either via telephone or video call or over in the boutique if preferred. <\/p><p><\/p><p><\/p>",
+          "address1_title": "Our Boutique:",
+          "column_address1": "<p>Suzannah,<br\/>3 New Quebec Street, London, W1H 7RE.<\/p>",
+          "address2_title": "Our Atelier is situated opposite the boutique:",
+          "column_address2": "<p>The Atelier <br\/>20 New Quebec Street, London W1H 7RZ<\/p>",
+          "adress_map": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d2482.8969262559303!2d-0.16025068422975008!3d51.515106979636364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761accac53ff91%3A0x637faee0479d55c!2sSuzannah!5e0!3m2!1sen!2sin!4v1545719221651\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen=\"\"><\/iframe>",
+          "contact_form_type": "shopify_contact",
+          "contact_form_action": "https:\/\/forms.sign-up.to\/28913\/7067",
+          "time_content": "<p>Our store is open six days a week for you to browse our ready-to-wear range. If you are looking for a specific style that you have seen in the press or online, please phone in advance and we will make sure we have the style available in your size.<\/p><p><strong>Opening Hours<\/strong><br\/><br\/>Monday: 10.30am to 6pm<br\/><br\/>Tuesday: 10.30am to 6pm<br\/><br\/>Wednesday: 10.30am to 6pm<br\/><br\/>Thursday: 10.30am to 6pm<br\/><br\/>Friday: 10.30am to 6pm<br\/><br\/>Saturday: 10am to 5pm<br\/><br\/>Sunday: CLOSED<\/p><p><strong>Press contact<\/strong><br\/><br\/>For all press matters and call in requests, please contact;<\/p><p>Holly Robinson PR: <\/p><p>Holly@Hollyrobinsonpr.com<\/p><p><\/p><p><br\/><\/p>",
+          "newsletter_title": "Newsletter Signup",
+          "text_newsletter": "<p>We love to write a weekly newsletter. We update you about news from the collection and also have occasional promotions and events to share with you. Please complete your email address in the box below to join our VIP newsletter list.<\/p>"
+        }
+      },
+      "page-fullwidth-template": {
+        "type": "page-fullwidth-template",
+        "blocks": {
+          "1546434435158": {
+            "type": "text",
+            "settings": {
+              "title": "About Suzannah"
+            }
+          },
+          "1546435123137": {
+            "type": "text",
+            "settings": {
+              "title": "Suzannah Stockists"
+            }
+          },
+          "1546435496928": {
+            "type": "text",
+            "settings": {
+              "title": "Ordering Online"
+            }
+          },
+          "1546435509721": {
+            "type": "text",
+            "settings": {
+              "title": "Returns Policy"
+            }
+          },
+          "1546435528847": {
+            "type": "text",
+            "settings": {
+              "title": "Product Care"
+            }
+          },
+          "1546435598784": {
+            "type": "text",
+            "settings": {
+              "title": "Privacy Policy"
+            }
+          },
+          "1546435613512": {
+            "type": "text",
+            "settings": {
+              "title": "Terms and Conditions"
+            }
+          }
+        },
+        "block_order": [
+          "1546434435158",
+          "1546435123137",
+          "1546435496928",
+          "1546435509721",
+          "1546435528847",
+          "1546435598784",
+          "1546435613512"
+        ],
+        "settings": {}
+      },
+      "vip-registration-form": {
+        "type": "vip-registration-form",
+        "settings": {
+          "vip_image": "shopify:\/\/shop_images\/article-7_752x392_f84679e2-d1c0-436b-87fa-b290891ae6bd.jpg"
+        }
+      },
+      "product-gift-card": {
+        "type": "product-gift-card",
+        "settings": {
+          "return_policy": ""
+        }
+      },
+      "product-template-slider": {
+        "type": "product-template-slider",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_zoom": true,
+          "enable_payment_button": false,
+          "show_share_buttons": true,
+          "size_guide": "https:\/\/www.suzannah.com\/pages\/size-guide",
+          "size_guide_txt": "Size Guide",
+          "contact_no": "+44 207 258 0782",
+          "return_txt": "",
+          "return_txt_cta": "More info",
+          "return_txt_url": "",
+          "block_label_1": "Product Details",
+          "block_label_2": "Size & Fit",
+          "block_label_2a": "Product Composition",
+          "block_label_3": "Delivery & Returns",
+          "block_3_details": "<p>We offer free Worldwide shipping<\/p>\n<p><\/p>\n<p>UK: Express Delivery (DHL 1 to 2 working days) - Free<br>EU: Express Delivery (DHL 2 to 3 working days) - Free<br>Worldwide: Express Delivery (DHL 2 to 4 working days) - Free<\/p>\n<p>Duties are chargeable<\/p>\n<p><\/p>\n<p>All returns are payable by the customer.<\/p>\n<p><\/p>\n<p>For more information please see our&nbsp;<span style=\"text-decoration: underline;\"><a href=\"\/pages\/ordering-online\" title=\"Ordering Online\">Shipping Information<\/a><\/span>&nbsp;and&nbsp;<span style=\"text-decoration: underline;\"><a href=\"\/pages\/returns-policy\" title=\"Online and Telephone Returns Policy\">Returns Policy<\/a><\/span>.<\/p>",
+          "show_lifestyle": false,
+          "lifestyle_image": "",
+          "lifestyle_cta_txt": "Lifestyle Image Block Section",
+          "lifestyle_cta_url": ""
+        }
+      },
+      "1571142424931": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Formal_wear_banner.jpg",
+          "layout": "left",
+          "title": "Shop Formal Wear",
+          "hide_cta": false,
+          "button_label": "Shop Now",
+          "button_link": "shopify:\/\/collections\/classics",
+          "cta_over_img": true
+        }
+      },
+      "product-template-slider-v2": {
+        "type": "product-template-slider-v2",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_zoom": true,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "size_guide": "https:\/\/www.suzannah.com\/pages\/size-guide",
+          "size_guide_txt": "Size Guide",
+          "contact_no": "+44 (0)207 258 0782",
+          "return_txt": "FREE WORLDWIDE SHIPPING OVER £150",
+          "return_txt_cta": "More info",
+          "block_label_1": "Product Details",
+          "block_label_2": "Size & Fit",
+          "block_label_2a": "Product Composition",
+          "block_label_3a": "Sustainable Attributes",
+          "block_label_3": "Delivery & Returns",
+          "block_3_details": "<p>We offer free worldwide shipping on orders over £150. <br\/><br\/>UK - all orders: Express Delivery (DHL 1 to 2 working days) <\/p><p>EU - orders under £150: Express Delivery (DHL 2 to 3 working days) - £30<br\/>EU - orders over £150: Express Delivery (DHL 2 to 3 working days) - Free<\/p><p>Worldwide - orders under £150: Express Delivery (DHL 2 to 4 working days) - £30<br\/>Worldwide - orders over £150: Express Delivery (DHL 2 to 4 working days) - Free<\/p><p>Duties are chargeable<\/p><p>All returns are payable by the customer.<\/p><p>For more information please see our <a href=\"\/pages\/ordering-online\" title=\"Ordering Online\"><span style=\"text-decoration:underline\">Shipping Information<\/span><\/a> and <a href=\"\/pages\/returns-policy\" title=\"Online and Telephone Returns Policy\"><span style=\"text-decoration:underline\">Returns Policy<\/span><\/a>.<\/p>",
+          "show_lifestyle": false,
+          "lifestyle_cta_txt": "Lifestyle Image Block Section",
+          "section_height": 40
+        }
+      },
+      "1585244463358": {
+        "type": "feature-row",
+        "disabled": true,
+        "settings": {
+          "image": "shopify:\/\/shop_images\/alison_edited.jpg",
+          "layout": "left",
+          "title": "Browse The Bridal Edit",
+          "hide_cta": false,
+          "button_label": "View Now",
+          "button_link": "https:\/\/www.suzannah.com\/collections\/bridal-edit",
+          "cta_over_img": true
+        }
+      },
+      "request-form": {
+        "type": "request-form",
+        "blocks": {
+          "1585658233023": {
+            "type": "image",
+            "settings": {
+              "title": "Online Shopping Consultation",
+              "text": "Book a virtual shopping appointment with Suzannah and her team! \n<br><br>\nWe know that buying dresses remotely can be challenging so we are now offering online shopping consultations. Have a personal sales appointment from the comfort of your home, wherever you are in the world, and let us help you find the perfect outfit for your occasion.\n<br><br>\nAll Suzannah pieces are exquisitely designed and expertly cut to allow for different body shapes and perspectives. During the appointment we will be able to answer your questions and advise you on the perfect pieces from our collection. You can order ready-to-wear styles or choose a bespoke piece from our Atelier collection.",
+              "image": "shopify:\/\/shop_images\/suzannah_headshotx600.jpg",
+              "full-width": false
+            }
+          },
+          "5722a05b-df3b-4e78-ac27-c0b2e4238141": {
+            "type": "image",
+            "settings": {
+              "title": "",
+              "text": "<p><i>Please use the form below to book an appointment with us. \n<\/i><\/p>",
+              "image": "shopify:\/\/shop_images\/suzannah_online_consultation.jpg",
+              "full-width": true
+            }
+          }
+        },
+        "block_order": [
+          "1585658233023",
+          "5722a05b-df3b-4e78-ac27-c0b2e4238141"
+        ],
+        "settings": {
+          "title": "Online Shopping Consultation"
+        }
+      },
+      "journal-template": {
+        "type": "journal-template",
+        "settings": {
+          "title": "",
+          "image": "shopify:\/\/shop_images\/bnr-img.jpg",
+          "image_url": "",
+          "blog_title": "WELCOME TO OUR JOURNAL",
+          "url": "",
+          "description": "An edit of Suzannah news to give you an insight into the Suzannah London brand. Press, new products and exciting extracts of extra information to keep you updated with our journey..x"
+        }
+      },
+      "article-journal-template": {
+        "type": "article-journal-template",
+        "settings": {
+          "text-box": "Title",
+          "social_checkbox": false
+        }
+      },
+      "160318851626104afc": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Tea_dress_July.jpg",
+          "layout": "left",
+          "title": "Shop Tea Dresses",
+          "hide_cta": false,
+          "button_label": "Shop Now",
+          "button_link": "shopify:\/\/collections\/silk-tea-dresses",
+          "cta_over_img": false
+        }
+      },
+      "16031949455fc95afc": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/hats_and_headbands.jpg",
+          "layout": "right",
+          "title": "Shop Hats & Headbands",
+          "hide_cta": false,
+          "button_label": "Shop Now",
+          "button_link": "https:\/\/www.suzannah.com\/collections\/millinery",
+          "cta_over_img": false
+        }
+      },
+      "1611040003b48673dc": {
+        "type": "home-video-section",
+        "settings": {
+          "video_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0068\/0873\/1721\/files\/SS21_Lookbook_Web.mp4?v=1611342989"
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical",
+          "grid": 3
+        }
+      }
+    },
+    "content_for_index": [
+      "1541148188402",
+      "1540994293490",
+      "1571142424931",
+      "1611040003b48673dc",
+      "160318851626104afc",
+      "16031949455fc95afc",
+      "1540994180115",
+      "1585244463358",
+      "1540995080189"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "color_text": "#3d4246",
+      "color_body_text": "#69727b",
+      "color_sale_text": "#557B97",
+      "color_borders": "#e8e9eb",
+      "color_button": "#557B97",
+      "color_button_text": "#fff",
+      "color_small_button_text_border": "#3d4246",
+      "color_text_field": "#fff",
+      "color_text_field_text": "#000",
+      "color_text_field_border": "#949494",
+      "color_image_overlay_text": "#fff",
+      "color_image_overlay": "#3d4246",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#fff",
+      "type_header_font": "work_sans_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "work_sans_n4",
+      "type_base_size": 16,
+      "type_bold_product_titles": false,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {}
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "slideshow-1": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ],
+          "settings": {}
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {}
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "link_list": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "link_list-1": {
+              "type": "link_list",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "link_list",
+            "link_list-1"
+          ],
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "feature-row",
+        "slideshow"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#6d6d6d",
+      "color_sale_text": "#DA2F0C",
+      "color_borders": "#e4e4e4",
+      "color_button": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "color_small_button_text_border": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_text_field_border": "#909090",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#f8f8f8",
+      "type_header_font": "muli_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "muli_n4",
+      "type_base_size": 18,
+      "type_bold_product_titles": true,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "main_linklist": "main-menu",
+            "message": true,
+            "color_bg": "#162950",
+            "color_text": "#ffffff"
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "slideshow_height": "medium",
+            "text_size": "medium",
+            "autorotate": false,
+            "autorotate_speed": 5
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_variant_labels": true,
+            "show_vendor": false,
+            "enable_zoom": true,
+            "show_share_buttons": true
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": 2,
+            "rows": 2,
+            "show_collection_image": true,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {}
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {}
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "blocks": {
+            "1492096252560-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-2": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ],
+          "settings": {
+            "grid": 3
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {
+            "cart_notes_enable": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "link_list": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "link_list-1": {
+              "type": "link_list",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "link_list",
+            "link_list-1"
+          ],
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  }
+}

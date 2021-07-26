@@ -1,0 +1,59 @@
+<div class="content-page clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="content-block d-block clearfix">
+            <h1 class="h1">{{ page.title }}</h1>
+            {% for block in section.blocks %}
+              {% if block.settings.page_handle != blank and block.settings.page_handle contains page.handle %}
+                  <div class="col-12 col-sm-11 col-md-10 ml-auto mr-auto mt-4 mb-4">
+                    {%- if block.settings.page_banner != blank -%}
+                        <img src="{{block.settings.page_banner | img_url : 'master' }}" />
+                    {%- endif -%}
+                  </div>
+              {% endif %}
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-wrapper">
+    {% if page.content != blank %}
+    <div class="rte">
+      <p>{{ page.content }}</p>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "PAGE BANNER"
+  },
+  "class": "index-section",
+  "blocks": [{
+      "type": "text",
+      "name": {
+        "en": "Page Image Block"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Admin Label"
+        },
+        {
+          "type": "url",
+          "id": "page_handle",
+          "label": "Page Handle"
+        },
+        {
+          "type": "image_picker",
+          "id": "page_banner",
+          "label": "Left Large Image"
+        }
+      ]
+    }]
+}
+{% endschema %}

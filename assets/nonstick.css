@@ -1,0 +1,17 @@
+@media only screen and (min-width: 480px) /* and (max-width: 1919px) */{ 
+  
+  .header {
+	position:relative!important;
+  }
+  .product-colette-sleek-and-capelet-dress-cornflower-wool-crepe .header{ z-index:0!important; }
+  
+  /* #shopify-section-header > div:last-of-type > div{ display:none; } */
+  
+  div.announcement-bar{ display:block; }
+  
+  .collection-header > .filter-row{
+	position:relative!important;
+    top:0px!important;
+  }
+
+}

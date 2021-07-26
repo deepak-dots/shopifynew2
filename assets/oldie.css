@@ -1,0 +1,6 @@
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+   /* Put your IE-only styles here. Works for IS 10 & IE 11*/
+  .product-detail .pd-detail.position-sticky{ transform: translateY(0%); }
+  .popup-modal-mask{ display:none!important; }
+}
+.ie9 .popup-modal{ margin-left:auto!important; margin-top:auto!important; }
