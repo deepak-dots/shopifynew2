@@ -416,7 +416,10 @@ slate.a11y = {
       }
       if (isTargetBlank) {
         if (rel === undefined || rel.indexOf('noopener') === -1) {
-          $link.attr('rel', 'noopener');
+          $link.attr('rel', function(i, val) {
+            var relValue = val === undefined ? '' : val + ' ';
+            return relValue + 'noopener';
+          });
         }
         $link.attr('aria-describedby', idSelectors.newWindow);
       }
