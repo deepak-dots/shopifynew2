@@ -70,7 +70,7 @@
 				{% comment %} Fix Shopify search term report {% endcomment %}
 				{% paginate search.results by 2 %}
 					{% if search.performed %}
-						{% for item in search.results %}
+						{% for item in search.results %}{% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_search' with item, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
 							<div class="grid__item" style="display: none !important"></div>
 						{% endfor %}
 					{% endif %}

@@ -102,7 +102,7 @@
     				{% if section.settings.layout == 'grid' %}
 
     					<div class="boost-pfs-filter-products grid row grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}" data-bc-sort="{{ collection.default_sort_by }}">
-    						{% for product in collection.products %}
+    						{% for product in collection.products %}{% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
     							<div class="grid__item col-6 col-sm-6 col-md-4 col-lg-3 grid__item--{{section.id}} {{ grid_item_width }}">
     								{% include 'product-card-grid', max_height: max_height %}
     							</div>
@@ -114,7 +114,7 @@
 
     					<div class="boost-pfs-filter-products" data-bc-sort="{{ collection.default_sort_by }}">
     						<ul class="list-view-items">
-    							{% for product in collection.products %}
+    							{% for product in collection.products %}{% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
     								<li href="{{ product.url | within: collection }}" class="list-view-item">
     									{% include 'product-card-list', product: product %}
     								</li>
